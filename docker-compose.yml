@@ -1,0 +1,21 @@
+services:
+    dev:
+        build:
+            context: .
+            target: dev
+        ports:
+            - "5173:5173"
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+            - WATCHPACK_POLLING=true
+        volumes:
+            - .:/app
+            - /app/node_modules
+        command: ["pnpm", "run", "dev", "--host", "0.0.0.0", "--port", "5173"]
+
+    preview:
+        build:
+            context: .
+            target: preview
+        ports:
+            - "4173:4173"

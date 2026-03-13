@@ -1,0 +1,48 @@
+:root {
+    --gray-100: #f8f8f2;
+    --gray-300: #e0e0e0;
+    --gray-500: #888888;
+    --gray-700: #555555;
+    --gray-800: #2a2a2a;
+    --gray-900: #161618;
+    --gray-950: #141823;
+
+    --white: #f2f2f2;
+    --black: #121212;
+
+    --font-main:
+        "Inter", "Avenir", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+
+    --container-normal: 700px;
+
+    --radius-s: 4px;
+    --radius-m: 6px;
+    --radius-l: 8px;
+    --radius-pill: 999px;
+
+    --bg-canvas: var(--gray-900);
+    --bg-surface: rgba(24, 24, 24, 0.9);
+
+    --text-heading: var(--gray-100);
+    --text-body: var(--gray-300);
+    --text-muted: var(--gray-500);
+
+    --border-subtle: rgba(255, 255, 255, 0.2);
+    --border-focus: rgba(255, 255, 255, 0.45);
+
+    --empty-fill: #e1e8ed;
+}
+
+[data-theme="light"] {
+    --bg-canvas: var(--gray-100);
+    --bg-surface: rgba(255, 255, 255, 0.9);
+
+    --text-heading: var(--gray-900);
+    --text-body: var(--gray-700);
+    --text-muted: var(--gray-500);
+
+    --border-subtle: rgba(0, 0, 0, 0.2);
+    --border-focus: rgba(0, 0, 0, 0.45);
+
+    --empty-fill: rgb(212, 212, 212);
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run only lint-staged for faster commits
+pnpm lint-staged || exit $?

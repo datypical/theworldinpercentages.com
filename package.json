@@ -1,0 +1,57 @@
+{
+    "name": "the-world-in-percentages",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "prepare": "svelte-kit sync || echo '' && husky",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "test": "playwright test",
+        "docker:dev": "docker compose up --build dev",
+        "docker:down": "docker compose down --remove-orphans"
+    },
+    "lint-staged": {
+        "*.{js,ts,svelte}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{css,md,json}": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20260310.1",
+        "@eslint/js": "^9.39.2",
+        "@playwright/test": "^1.57.0",
+        "@sveltejs/adapter-auto": "^6.0.0",
+        "@sveltejs/adapter-cloudflare": "^7.2.8",
+        "@sveltejs/adapter-static": "^3.0.10",
+        "@sveltejs/kit": "^2.22.0",
+        "@sveltejs/vite-plugin-svelte": "^6.0.0",
+        "@types/d3-force": "^3.0.10",
+        "@typescript-eslint/parser": "^8.53.1",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-svelte": "^3.14.0",
+        "globals": "^17.0.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.7",
+        "prettier": "^3.8.1",
+        "prettier-plugin-svelte": "^3.4.1",
+        "svelte": "^5.0.0",
+        "svelte-check": "^4.0.0",
+        "svelte-eslint-parser": "^1.4.1",
+        "typescript": "^5.0.0",
+        "typescript-eslint": "^8.53.1",
+        "vite": "^7.0.4"
+    },
+    "dependencies": {
+        "d3-force": "^3.0.0"
+    }
+}

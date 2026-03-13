@@ -1,0 +1,57 @@
+@import "./variables.css";
+@import "./reset.css";
+
+.l-container {
+    width: 100%;
+    margin-inline: auto;
+    max-width: var(--container-normal);
+    padding-inline: 20px;
+}
+
+.l-container.is-narrow {
+    max-width: 600px;
+}
+
+.l-section {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.l-header {
+    margin: 80px auto;
+    text-align: center;
+}
+
+body {
+    line-height: 1.5;
+    background-color: var(--bg-canvas);
+    color: var(--text-body);
+    font-family: var(--font-main);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+.page-title {
+    font-size: clamp(1.6rem, 9vw, 90px);
+    color: var(--text-heading);
+    margin: 40px auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.1;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+.text-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.text-meta {
+    font-style: italic;
+}

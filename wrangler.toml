@@ -1,0 +1,9 @@
+name = "the-world-in-percentage"
+compatibility_date = "2024-03-11"
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[[d1_databases]]
+binding = "percentage_db"
+database_name = "percentage-db"
+database_id = "b1b04f55-10e3-4a0d-b4e4-4fce29c41641"
+preview_database_id = "percentage_db"

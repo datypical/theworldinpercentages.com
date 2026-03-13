@@ -1,0 +1,165 @@
+<script lang="ts">
+    import "$lib/styles/global.css";
+
+    let { children } = $props();
+
+    import { onMount } from "svelte";
+    import { i18n } from "$lib/i18n/i18n.svelte";
+
+    let theme = $state("dark");
+
+    onMount(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            theme = savedTheme;
+        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            theme = "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+
+        const savedLang = localStorage.getItem("language");
+        if (savedLang === "es" || savedLang === "en") {
+            i18n.language = savedLang;
+        } else if (navigator.language.startsWith("es")) {
+            i18n.language = "es";
+        }
+        document.documentElement.setAttribute("lang", i18n.language);
+    });
+
+    $effect(() => {
+        if (typeof document !== "undefined") {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+        }
+    });
+
+    $effect(() => {
+        if (typeof document !== "undefined") {
+            document.documentElement.setAttribute("lang", i18n.language);
+            localStorage.setItem("language", i18n.language);
+        }
+    });
+
+    function toggleTheme() {
+        theme = theme === "dark" ? "light" : "dark";
+    }
+</script>
+
+<div class="global-controls">
+    <button
+        class="icon-btn"
+        onclick={toggleTheme}
+        aria-label="Toggle theme"
+        title="Cambiar tema"
+    >
+        {#if theme === "dark"}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="12" cy="12" r="5" /><line
+                    x1="12"
+                    y1="1"
+                    x2="12"
+                    y2="3"
+                /><line x1="12" y1="21" x2="12" y2="23" /><line
+                    x1="4.22"
+                    y1="4.22"
+                    x2="5.64"
+                    y2="5.64"
+                /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line
+                    x1="1"
+                    y1="12"
+                    x2="3"
+                    y2="12"
+                /><line x1="21" y1="12" x2="23" y2="12" /><line
+                    x1="4.22"
+                    y1="19.78"
+                    x2="5.64"
+                    y2="18.36"
+                /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg
+            >
+        {:else}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+            >
+        {/if}
+    </button>
+
+    <select class="lang-select" bind:value={i18n.language} aria-label="Change language">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+    </select>
+</div>
+
+{@render children?.()}
+
+<style>
+    .global-controls {
+        position: fixed;
+        top: 1rem;
+        right: 1.5rem;
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        z-index: 50;
+    }
+
+    .icon-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        background: var(--bg-surface);
+        color: var(--text-body);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+        border-color: var(--border-focus);
+        color: var(--text-heading);
+    }
+
+    .icon-btn:active {
+        transform: scale(0.95);
+    }
+
+    .lang-select {
+        border: 1px solid var(--border-subtle);
+        border-radius: 999px;
+        padding: 0.38rem 0.9rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: var(--bg-surface);
+        color: var(--text-body);
+        backdrop-filter: blur(6px);
+        outline: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .lang-select:focus,
+    .lang-select:hover {
+        border-color: var(--border-focus);
+        color: var(--text-heading);
+    }
+</style>
