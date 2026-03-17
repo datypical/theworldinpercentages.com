@@ -37,9 +37,9 @@
     --bg-canvas: var(--gray-100);
     --bg-surface: rgba(255, 255, 255, 0.9);
 
-    --text-heading: var(--gray-900);
-    --text-body: var(--gray-700);
-    --text-muted: var(--gray-500);
+    --text-heading: var(--gray-950);
+    --text-body: var(--gray-800);
+    --text-muted: var(--gray-700);
 
     --border-subtle: rgba(0, 0, 0, 0.2);
     --border-focus: rgba(0, 0, 0, 0.45);
