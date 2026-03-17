@@ -1,4 +1,3 @@
-import { forceCollide, forceSimulation, forceManyBody, forceCenter } from "d3-force";
 import type { CircleNode } from "$lib/types/data";
 
 export const totalItems = 100;
@@ -21,59 +20,106 @@ export const squareCoords = items.map((i) => {
     return { x: col + 1.0, y: row + 1.0 };
 });
 
-export const createCircleCoords = (): CircleNode[] => {
-    const centerX = gridWidth / 2;
-    const centerY = gridHeight / 2;
-
-    const iconScale = shapeScale;
-    const nodeRadius = 14 * iconScale;
-
-    const boundaryRadius = nodeRadius * Math.sqrt(totalItems) * 1.1;
-
-    const nodes: CircleNode[] = items.map((id) => ({
-        id,
-        x: (Math.random() - 0.5) * boundaryRadius,
-        y: (Math.random() - 0.5) * boundaryRadius,
-    }));
-
-    function boundaryForce() {
-        for (let node of nodes) {
-            const dist = Math.sqrt(node.x * node.x + node.y * node.y);
-            if (dist > boundaryRadius) {
-                node.x = node.x * (boundaryRadius / dist);
-                node.y = node.y * (boundaryRadius / dist);
-            }
-        }
-    }
-
-    const simulation = forceSimulation(nodes)
-        .force(
-            "collide",
-            forceCollide()
-                .radius(nodeRadius + 2)
-                .iterations(4),
-        )
-        .force("charge", forceManyBody().strength(1))
-        .force("center", forceCenter(0, 0))
-        .force("boundary", boundaryForce)
-        .stop();
-
-    for (let tick = 0; tick < 300; tick++) {
-        simulation.tick();
-    }
-
-    return nodes
-        .map((node) => {
-            node.x += centerX;
-            node.y += centerY;
-            return node;
-        })
-        .sort((a, b) => {
-            const yA = Math.round(a.y / 5);
-            const yB = Math.round(b.y / 5);
-            if (yB !== yA) return yB - yA;
-            return a.x - b.x;
-        });
-};
-
-export const circleCoords = createCircleCoords();
+// Pre-calculated coordinates to avoid expensive d3-force simulation on client load
+export const circleCoords: CircleNode[] = [
+    { id: 0, x: 338.08, y: 661.84 },
+    { id: 1, x: 278.84, y: 652.86 },
+    { id: 2, x: 452.58, y: 647.68 },
+    { id: 3, x: 394.28, y: 641.5 },
+    { id: 4, x: 222.38, y: 633.3 },
+    { id: 5, x: 170.93, y: 603.22 },
+    { id: 6, x: 316.21, y: 606.31 },
+    { id: 7, x: 491.17, y: 603.93 },
+    { id: 8, x: 431.89, y: 594.73 },
+    { id: 9, x: 548.97, y: 594.49 },
+    { id: 10, x: 259.16, y: 587.61 },
+    { id: 11, x: 372.52, y: 585.65 },
+    { id: 12, x: 188.99, y: 548.32 },
+    { id: 13, x: 593.34, y: 549.41 },
+    { id: 14, x: 300.87, y: 544.7 },
+    { id: 15, x: 476.32, y: 545.86 },
+    { id: 16, x: 535.86, y: 538.51 },
+    { id: 17, x: 417.26, y: 536.71 },
+    { id: 18, x: 244.16, y: 525.58 },
+    { id: 19, x: 358.03, y: 527.49 },
+    { id: 20, x: 141.18, y: 512.46 },
+    { id: 21, x: 83.11, y: 502.15 },
+    { id: 22, x: 575.47, y: 493.59 },
+    { id: 23, x: 195.91, y: 487.98 },
+    { id: 24, x: 454.79, y: 489.88 },
+    { id: 25, x: 514.18, y: 482.94 },
+    { id: 26, x: 395.5, y: 480.66 },
+    { id: 27, x: 273.72, y: 473.35 },
+    { id: 28, x: 333.56, y: 472.91 },
+    { id: 29, x: 631.57, y: 472.32 },
+    { id: 30, x: 141.4, y: 452.51 },
+    { id: 31, x: 60.1, y: 446.99 },
+    { id: 32, x: 553.49, y: 437.86 },
+    { id: 33, x: 433.15, y: 434 },
+    { id: 34, x: 195.81, y: 427.31 },
+    { id: 35, x: 370.9, y: 426.2 },
+    { id: 36, x: 492.75, y: 427.2 },
+    { id: 37, x: 254.74, y: 416.67 },
+    { id: 38, x: 313.94, y: 407.84 },
+    { id: 39, x: 657.35, y: 409.33 },
+    { id: 40, x: 103.44, y: 406.12 },
+    { id: 41, x: 598.94, y: 398.78 },
+    { id: 42, x: 47.23, y: 388.68 },
+    { id: 43, x: 157.78, y: 380.89 },
+    { id: 44, x: 408.18, y: 379.55 },
+    { id: 45, x: 532.15, y: 381.9 },
+    { id: 46, x: 467.61, y: 372.77 },
+    { id: 47, x: 216.82, y: 370.37 },
+    { id: 48, x: 276.62, y: 360.86 },
+    { id: 49, x: 637.51, y: 352.93 },
+    { id: 50, x: 335.98, y: 352.04 },
+    { id: 51, x: 108.75, y: 346.36 },
+    { id: 52, x: 577.53, y: 342.76 },
+    { id: 53, x: 51.28, y: 329.2 },
+    { id: 54, x: 178.19, y: 324.46 },
+    { id: 55, x: 388.52, y: 323.08 },
+    { id: 56, x: 506.88, y: 327.42 },
+    { id: 57, x: 238.51, y: 314.58 },
+    { id: 58, x: 448.03, y: 316.08 },
+    { id: 59, x: 297.63, y: 304.66 },
+    { id: 60, x: 657.43, y: 297 },
+    { id: 61, x: 129.12, y: 289.95 },
+    { id: 62, x: 599.47, y: 286.99 },
+    { id: 63, x: 540.19, y: 277.91 },
+    { id: 64, x: 350.65, y: 276.64 },
+    { id: 65, x: 57.42, y: 269.61 },
+    { id: 66, x: 200.05, y: 268.63 },
+    { id: 67, x: 411.75, y: 267.76 },
+    { id: 68, x: 259.06, y: 258.28 },
+    { id: 69, x: 471.33, y: 260.81 },
+    { id: 70, x: 638.5, y: 240.1 },
+    { id: 71, x: 150.99, y: 234.12 },
+    { id: 72, x: 312.36, y: 230.72 },
+    { id: 73, x: 577.43, y: 231.19 },
+    { id: 74, x: 517.47, y: 222.5 },
+    { id: 75, x: 92.45, y: 221.34 },
+    { id: 76, x: 373.78, y: 221.34 },
+    { id: 77, x: 220.6, y: 212.25 },
+    { id: 78, x: 432.95, y: 211.69 },
+    { id: 79, x: 275.76, y: 183.13 },
+    { id: 80, x: 612.79, y: 184.9 },
+    { id: 81, x: 170.96, y: 177.54 },
+    { id: 82, x: 335.3, y: 175.31 },
+    { id: 83, x: 480.57, y: 175.3 },
+    { id: 84, x: 554.89, y: 175.62 },
+    { id: 85, x: 110.86, y: 164.52 },
+    { id: 86, x: 394.97, y: 165.25 },
+    { id: 87, x: 224.92, y: 151.39 },
+    { id: 88, x: 517.99, y: 128.39 },
+    { id: 89, x: 451.73, y: 122.69 },
+    { id: 90, x: 152.08, y: 121.03 },
+    { id: 91, x: 276.89, y: 121.43 },
+    { id: 92, x: 336.57, y: 115.39 },
+    { id: 93, x: 395.18, y: 102.7 },
+    { id: 94, x: 205.65, y: 94.61 },
+    { id: 95, x: 489.08, y: 76.57 },
+    { id: 96, x: 255.56, y: 61.82 },
+    { id: 97, x: 315.3, y: 59.32 },
+    { id: 98, x: 432.92, y: 56.16 },
+    { id: 99, x: 373.83, y: 46.43 },
+];
