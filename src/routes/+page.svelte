@@ -10,9 +10,21 @@
         name: i18n.t.seo.title,
         description: i18n.t.seo.description,
         url: canonicalUrl,
-        creator: {
-            "@type": "Person",
-            name: "Tu Nombre",
+        author: [
+            {
+                "@type": "Person",
+                name: "Juanchi Parra",
+                url: "https://github.com/juanchiparra",
+            },
+            {
+                "@type": "Organization",
+                name: "Datypical Studio",
+                url: "https://github.com/datypical",
+            },
+        ],
+        publisher: {
+            "@type": "Organization",
+            name: "Datypical Studio",
         },
     };
 </script>
