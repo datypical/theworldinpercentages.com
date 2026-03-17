@@ -42,7 +42,7 @@ export const translations = {
                 "This visualization is constantly updated with new metrics. If you want to collaborate or suggest data, click here.",
             linkText: "Contribute to the project",
             modal: {
-                title: "Suggest a New fact",
+                title: "Suggest a new fact",
                 questionLabel: "Question",
                 questionPlaceholder:
                     "e.g. Percentage of world population that is left-handed?",

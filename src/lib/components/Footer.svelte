@@ -70,7 +70,7 @@
                 }}
             >
                 <div class="modal-header">
-                    <h2>{i18n.t.end.modal?.title || "Suggest a New Fact"}</h2>
+                    <h2>{i18n.t.end.modal?.title || "Suggest a new fact"}</h2>
                     <button
                         type="button"
                         class="close-btn"
