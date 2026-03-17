@@ -69,6 +69,13 @@
                 <a href="https://github.com/datypical" target="_blank">Datypical Studio</a
                 ></span
             >
+
+            <div class="wip-banner">
+                <p>
+                    This project is currently under construction. The data shown right now
+                    is temporary and for sample purposes. Come back later!
+                </p>
+            </div>
         </div>
 
         <div class="l-container is-narrow introduction">
@@ -80,3 +87,23 @@
 
     <Viewer />
 </main>
+
+<style>
+    .wip-banner {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: rgba(255, 193, 7, 0.1);
+        border: 1px dashed rgba(255, 193, 7, 0.4);
+        border-radius: var(--radius-m);
+        color: var(--text-heading);
+        font-size: 0.95rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wip-banner p {
+        margin: 0;
+        line-height: 1.5;
+    }
+</style>
