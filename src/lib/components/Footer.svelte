@@ -157,7 +157,7 @@
                                 {i18n.t.end.modal?.githubPrompt ||
                                     "Want to help maintain the code? "}
                                 <a
-                                    href="https://github.com/datypical/the-world-in-percentages"
+                                    href="https://github.com/datypical/theworldinpercentages.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
