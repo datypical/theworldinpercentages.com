@@ -10,6 +10,7 @@
 
         <p class="desc">{i18n.t.error.message}</p>
 
+        <!-- eslint-disable-next-line -->
         <a href="/" class="btn-home">{i18n.t.error.backHome}</a>
     </div>
 </div>
