@@ -4,6 +4,7 @@
     let { children } = $props();
 
     import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
     import { i18n } from "$lib/i18n/i18n.svelte";
 
     let theme = $state("dark");
@@ -16,13 +17,6 @@
             theme = "light";
         }
         document.documentElement.setAttribute("data-theme", theme);
-
-        const savedLang = localStorage.getItem("language");
-        if (savedLang === "es" || savedLang === "en") {
-            i18n.language = savedLang;
-        } else if (navigator.language.startsWith("es")) {
-            i18n.language = "es";
-        }
         document.documentElement.setAttribute("lang", i18n.language);
     });
 
@@ -101,7 +95,19 @@
         {/if}
     </button>
 
-    <select class="lang-select" bind:value={i18n.language} aria-label="Change language">
+    <select
+        class="lang-select"
+        value={i18n.language}
+        onchange={(e) => {
+            const target = e.target as HTMLSelectElement;
+            if (target.value === "en") {
+                goto("/");
+            } else {
+                goto("/" + target.value);
+            }
+        }}
+        aria-label="Change language"
+    >
         <option value="en">EN</option>
         <option value="es">ES</option>
     </select>
