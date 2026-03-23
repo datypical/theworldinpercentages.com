@@ -1,14 +1,9 @@
 <script lang="ts">
     import { i18n } from "$lib/i18n/i18n.svelte";
-    import type { DisplayMode, InteractionMode } from "$lib/types/data";
+    import type { DisplayMode } from "$lib/types/data";
 
     export let selectedCategory: string;
-    export let interactionMode: InteractionMode;
     export let displayMode: DisplayMode;
-    export let randomFinished: boolean;
-    export let scrollDisabled: boolean = false;
-    export let onModeChange: (mode: InteractionMode) => void;
-    export let onRandomRoll: () => void;
 </script>
 
 <div class="view-picker">
@@ -16,104 +11,13 @@
         <label for="category-mode">{i18n.t.controls.category || "Category"}</label>
         <select id="category-mode" bind:value={selectedCategory}>
             <option value="all">{i18n.t.controls.catAll || "All"}</option>
-            <option value="technology"
-                >{i18n.t.controls.catTechnology || "Technology"}</option
-            >
-            <option value="demography"
-                >{i18n.t.controls.catDemography || "Demography"}</option
-            >
             <option value="health">{i18n.t.controls.catHealth || "Health"}</option>
+            <option value="energy">{i18n.t.controls.catEnergy || "Energy"}</option>
+            <option value="society">{i18n.t.controls.catSociety || "Society"}</option>
+            <option value="environment"
+                >{i18n.t.controls.catEnvironment || "Environment"}</option
+            >
         </select>
-    </div>
-
-    <div class="control-group interaction-control">
-        <span class="group-label">{i18n.t.controls.interactionMode}</span>
-        <div class="toggle-buttons">
-            <button
-                class="icon-toggle-btn"
-                class:active={interactionMode === "scroll"}
-                on:click={() => onModeChange("scroll")}
-                title={i18n.t.controls.modeScroll}
-                aria-label={i18n.t.controls.modeScroll}
-                disabled={scrollDisabled}
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <rect x="5" y="2" width="14" height="20" rx="7" />
-                    <line x1="12" y1="6" x2="12" y2="10" />
-                </svg>
-            </button>
-
-            <button
-                class="icon-toggle-btn"
-                class:active={interactionMode === "random"}
-                on:click={() => onModeChange("random")}
-                title={i18n.t.controls.modeRandom}
-                aria-label={i18n.t.controls.modeRandom}
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 14v-8a2 2 0 0 1 2 -2h8" />
-                    <path d="M4 14a2 2 0 0 0 2 2h8" />
-                    <path d="M14 4l-2 -2" />
-                    <path d="M14 4l-2 2" />
-                    <path d="M14 16l-2 -2" />
-                    <path d="M14 16l-2 2" />
-                    <rect x="14" y="8" width="6" height="12" rx="2" />
-                    <path d="M17 12l0 .01" />
-                    <path d="M17 17l0 .01" />
-                </svg>
-            </button>
-
-            {#if interactionMode === "random"}
-                <div class="divider"></div>
-                <button
-                    class="action-btn"
-                    on:click={onRandomRoll}
-                    disabled={randomFinished}
-                    title={i18n.t.controls.nextEntry}
-                    aria-label={i18n.t.controls.nextEntry}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <rect x="4" y="4" width="16" height="16" rx="2" />
-                        <circle cx="8.5" cy="8.5" r=".5" fill="currentColor" />
-                        <circle cx="15.5" cy="8.5" r=".5" fill="currentColor" />
-                        <circle cx="15.5" cy="15.5" r=".5" fill="currentColor" />
-                        <circle cx="8.5" cy="15.5" r=".5" fill="currentColor" />
-                        <circle cx="12" cy="12" r=".5" fill="currentColor" />
-                    </svg>
-                </button>
-            {/if}
-        </div>
     </div>
 
     <div class="control-group display-control">

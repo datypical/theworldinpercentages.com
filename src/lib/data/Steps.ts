@@ -10,83 +10,181 @@ export const STEP_COLORS = [
 export const STEPS: Step[] = [
     {
         id: "step_1",
-        percentage: 62,
-        category: "technology",
+        percentage: 74,
+        category: "health",
+        sourceUrl: "",
         en: {
-            question: "EN - Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            question: "Population with access to safe drinking water",
             explanation:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                "74% have safely managed water. However, 1 in 4 people still lack access to this basic service",
+            source: "JMP 2025 | WHO and UNICEF",
         },
         es: {
-            question: "ES - Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            question: "Población con acceso a agua potable segura",
             explanation:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                "El 74% cuenta con agua gestionada de forma segura. Sin embargo, 1 de cada 4 personas aún carece de este servicio básico",
+            source: "JMP 2025 | OMS y UNICEF",
         },
     },
     {
         id: "step_2",
-        percentage: 24,
-        category: "technology",
+        percentage: 32,
+        category: "energy",
+        sourceUrl: "",
         en: {
-            question:
-                "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
+            question: "Global electricity from renewable sources",
             explanation:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                "Renewables generate 32% of global electricity, led by hydropower, wind, and solar energy",
+            source: "Global Electricity Review 2025 | Ember",
         },
         es: {
-            question:
-                "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
+            question: "Electricidad mundial por fuentes renovables",
             explanation:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                "Las renovables generan el 32% de la electricidad global, lideradas por la energía hidroeléctrica, eólica y solar",
+            source: "Revisión Eléctrica Global 2025 | Ember",
         },
     },
     {
         id: "step_3",
-        percentage: 89,
-        category: "demography",
+        percentage: 10,
+        category: "society",
+        sourceUrl: "",
         en: {
-            question: "Ut enim ad minim veniam, quis nostrud exercitation ullamco?",
+            question: "Population living in extreme poverty",
             explanation:
-                "Sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+                "Affects 1 in 10 people (808 million). Eradicating it by 2030 is currently a highly unlikely goal",
+            source: "The Sustainable Development Goals Report 2025 | United Nations",
         },
         es: {
-            question: "Ut enim ad minim veniam, quis nostrud exercitation ullamco?",
+            question: "Población en situación de pobreza extrema",
             explanation:
-                "Sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+                "Afecta a 1 de cada 10 personas (808 millones). Erradicarla para 2030 es un objetivo muy improbable",
+            source: "Informe sobre los Objetivos de Desarrollo Sostenible 2025 | Naciones Unidas",
         },
     },
     {
         id: "step_4",
-        percentage: 45,
-        category: "technology",
+        percentage: 8,
+        category: "health",
+        sourceUrl: "",
         en: {
-            question:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum?",
+            question: "Global population facing chronic hunger",
             explanation:
-                "Phasellus vestibulum lorem sed risus ultricies tristique nulla. Dictum aliquam porta non pulvinar neque laoreet suspendisse interdum consectetur libero id.",
+                "Affects roughly 673 million people. Although the figure dropped slightly in 2024, the food crisis persists",
+            source: "The State of Food Security and Nutrition in the World 2025 | FAO, IFAD, WHO, WFP, and UNICEF",
         },
         es: {
-            question:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum?",
+            question: "Población mundial con hambre crónica",
             explanation:
-                "Phasellus vestibulum lorem sed risus ultricies tristique nulla. Dictum aliquam porta non pulvinar neque laoreet suspendisse interdum consectetur libero id.",
+                "Afecta a unos 673 millones de personas. Aunque la cifra bajó levemente en 2024, la crisis alimentaria persiste",
+            source: "El estado de la seguridad alimentaria y la nutrición en el mundo 2025 | FAO, FIDA, OMS, PMA y UNICEF",
         },
     },
     {
         id: "step_5",
-        percentage: 77,
-        category: "health",
+        percentage: 93,
+        category: "energy",
+        sourceUrl: "",
         en: {
-            question:
-                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia?",
+            question: "Global population with access to electricity",
             explanation:
-                "Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Velit euismod in pellentesque massa placerat duis ultricies lacus sed.",
+                "93% of the world has electricity. However, 666 million people—mostly in Africa—still live in the dark",
+            source: "Energy Progress Report 2025 | IEA, IRENA, UNSD, the World Bank, and WHO",
         },
         es: {
-            question:
-                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia?",
+            question: "Población mundial con acceso a electricidad",
             explanation:
-                "Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Velit euismod in pellentesque massa placerat duis ultricies lacus sed.",
+                "El 93% del mundo tiene luz. Sin embargo, 666 millones de personas siguen a oscuras",
+            source: "Informe de Progreso Energético 2025 | AIE, IRENA, DEES, Banco Mundial y OMS",
+        },
+    },
+    {
+        id: "step_6",
+        percentage: 28,
+        category: "environment",
+        sourceUrl: "",
+        en: {
+            question: "Species threatened with extinction",
+            explanation:
+                "Nearly 1 in 3 assessed species (over 48,600) is at risk of disappearing forever",
+            source: "Red List of Threatened Species 2025-2 | IUCN",
+        },
+        es: {
+            question: "Especies en peligro de extinción",
+            explanation:
+                "Casi 1 de cada 3 especies evaluadas (más de 48,600) está en riesgo de desaparecer para siempre",
+            source: "Lista Roja de Especies Amenazadas 2025-2 | UICN",
+        },
+    },
+    {
+        id: "step_7",
+        percentage: 20,
+        category: "health",
+        sourceUrl: "",
+        en: {
+            question: "Adults who consume tobacco",
+            explanation: "1 in 5 adults worldwide remains addicted to tobacco",
+            source: "Global report on trends in prevalence of tobacco use 2000–2024 | WHO",
+        },
+        es: {
+            question: "Adultos que consumen tabaco",
+            explanation:
+                "1 de cada 5 adultos en el mundo mantiene una adicción al tabaco",
+            source: "Informe mundial sobre tendencias en la prevalencia del tabaquismo 2000-2024 | OMS",
+        },
+    },
+    {
+        id: "step_8",
+        percentage: 4,
+        category: "society",
+        sourceUrl: "",
+        en: {
+            question: "International migrant population",
+            explanation:
+                "There are 304 million migrants. Today, 1 in 27 people worldwide lives outside their country of origin",
+            source: "International Migrant Stock | United Nations",
+        },
+        es: {
+            question: "Población que es migrante internacional",
+            explanation:
+                "Hay 304 millones de migrantes. 1 de cada 27 personas en el mundo vive fuera de su país de origen",
+            source: "Stock Internacional de Migrantes | Naciones Unidas",
+        },
+    },
+    {
+        id: "step_9",
+        percentage: 10,
+        category: "environment",
+        sourceUrl: "",
+        en: {
+            question: "Land area covered by ice",
+            explanation:
+                "10% of the land is covered by permanent ice, mostly concentrated in Antarctica and Greenland",
+            source: "Global Ice and Snow Data | NSIDC",
+        },
+        es: {
+            question: "Superficie terrestre cubierta por hielo",
+            explanation:
+                "El 10% de la tierra está cubierta por hielo permanente, concentrado principalmente en la Antártida y Groenlandia",
+            source: "Datos Globales de Nieve y Hielo | NSIDC",
+        },
+    },
+    {
+        id: "step_10",
+        percentage: 31,
+        category: "environment",
+        sourceUrl: "",
+        en: {
+            question: "Land area covered by forests",
+            explanation:
+                "Forests cover 31% of the planet. Over half of this natural wealth is located in just five countries",
+            source: "The State of the World's Forests 2024 | FAO",
+        },
+        es: {
+            question: "Superficie terrestre cubierta por bosques",
+            explanation:
+                "Los bosques ocupan el 31% del planeta. Más de la mitad de esta riqueza natural se concentra en solo cinco países",
+            source: "El estado de los bosques del mundo 2024 | FAO",
         },
     },
 ];

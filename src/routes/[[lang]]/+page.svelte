@@ -2,7 +2,8 @@
     import Viewer from "$lib/components/Viewer.svelte";
     import { i18n } from "$lib/i18n/i18n.svelte";
 
-    const canonicalUrl = "https://theworldinpercentages.com";
+    const baseUrl = "https://theworldinpercentages.com";
+    $: canonicalUrl = baseUrl + (i18n.language === "es" ? "/es/" : "/");
 
     $: jsonLd = {
         "@context": "https://schema.org",
@@ -38,15 +39,14 @@
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={i18n.t.seo.title} />
     <meta property="og:description" content={i18n.t.seo.description} />
-    <meta property="og:image" content="{canonicalUrl}/og-image.jpg" />
+    <!-- <meta property="og:image" content="{baseUrl}/og-image.jpg" /> -->
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={i18n.t.seo.title} />
     <meta property="twitter:description" content={i18n.t.seo.description} />
-    <meta property="twitter:image" content="{canonicalUrl}/og-image.jpg" />
+    <!-- <meta property="twitter:image" content="{baseUrl}/og-image.jpg" /> -->
 
-    <!-- SEO Alternatives -->
     <link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/" />
     <link rel="alternate" hreflang="es" href="https://theworldinpercentages.com/es/" />
     <link
@@ -54,8 +54,6 @@
         hreflang="x-default"
         href="https://theworldinpercentages.com/"
     />
-
-    <!-- eslint-disable-next-line svelte/no-at-html-tags, @typescript-eslint/no-unused-expressions -->
     {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 
     <script
@@ -79,13 +77,6 @@
                 <a href="https://github.com/datypical" target="_blank">Datypical Studio</a
                 ></span
             >
-
-            <div class="wip-banner">
-                <p>
-                    This project is currently under construction. The data shown right now
-                    is temporary and for sample purposes. Come back later!
-                </p>
-            </div>
         </div>
 
         <div class="l-container is-narrow introduction">
@@ -97,23 +88,3 @@
 
     <Viewer />
 </main>
-
-<style>
-    .wip-banner {
-        margin-top: 2rem;
-        padding: 1rem;
-        background-color: rgba(255, 193, 7, 0.1);
-        border: 1px dashed rgba(255, 193, 7, 0.4);
-        border-radius: var(--radius-m);
-        color: var(--text-heading);
-        font-size: 0.95rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .wip-banner p {
-        margin: 0;
-        line-height: 1.5;
-    }
-</style>

@@ -42,7 +42,7 @@
             {@const coords = isSquare ? squareCoords[item] : circleCoords[item]}
             {@const x = isSquare ? coords.x * cellStep : coords.x}
             {@const y = isSquare ? coords.y * cellStep : coords.y}
-            {@const isActive = item < activeStep.percentage}
+            {@const isActive = item < Math.round(activeStep.percentage)}
             {@const fill = isActive
                 ? activeColors.color
                 : activeColors.emptyColor || "#e0e0e0"}

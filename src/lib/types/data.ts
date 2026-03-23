@@ -1,12 +1,14 @@
 export interface LocalizedText {
     question: string;
     explanation: string;
+    source?: string;
 }
 
 export interface Step {
     id: string;
     percentage: number;
     category?: string;
+    sourceUrl?: string;
     en: LocalizedText;
     es: LocalizedText;
 }
@@ -20,4 +22,3 @@ export interface CircleNode {
 }
 
 export type DisplayMode = "shape" | "waffle";
-export type InteractionMode = "scroll" | "random";

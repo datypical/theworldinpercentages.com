@@ -43,8 +43,8 @@
     <button
         class="icon-btn"
         onclick={toggleTheme}
-        aria-label="Toggle theme"
-        title="Cambiar tema"
+        aria-label={i18n.t.controls.typeTheme}
+        title={i18n.t.controls.typeTheme}
     >
         {#if theme === "dark"}
             <svg

@@ -5,12 +5,10 @@
     import Footer from "./Footer.svelte";
     import { STEPS, STEP_COLORS } from "$lib/data/Steps";
     import { i18n } from "$lib/i18n/i18n.svelte";
-    import type { DisplayMode, InteractionMode } from "$lib/types/data";
+    import type { DisplayMode } from "$lib/types/data";
 
     let currentStep = -1;
     let displayMode: DisplayMode = "shape";
-    let interactionMode: InteractionMode = "scroll";
-    let selectedStepIndex = 0;
     let selectedCategory = "all";
 
     $: filteredSteps = STEPS.map((step, originalIndex) => ({
@@ -18,12 +16,7 @@
         originalIndex,
     })).filter((s) => selectedCategory === "all" || s.step.category === selectedCategory);
 
-    let randomPool: number[] = [];
-    let randomFinished = false;
-    let scrollDisabled = false;
-
-    $: activeStepIndex = interactionMode === "scroll" ? currentStep : selectedStepIndex;
-
+    $: activeStepIndex = currentStep;
     $: safeActiveIndex = Math.max(0, Math.min(activeStepIndex, filteredSteps.length - 1));
     $: activeStepWrap =
         filteredSteps.length > 0
@@ -32,74 +25,23 @@
     $: activeColors =
         STEP_COLORS[Math.max(0, activeStepWrap.originalIndex) % STEP_COLORS.length];
 
-    function handleModeChange(mode: InteractionMode) {
-        if (interactionMode !== mode) {
-            interactionMode = mode;
-            if (mode === "random") {
-                randomPool = filteredSteps
-                    .map((_, i) => i)
-                    .filter((i) => i !== activeStepIndex);
-                randomFinished = false;
-            } else {
-                randomFinished = false;
-            }
-        }
-    }
-
-    function handleRandomRoll() {
-        scrollDisabled = true;
-
-        if (randomPool.length === 0) {
-            randomFinished = true;
-            setTimeout(() => {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-            }, 100);
-            return;
-        }
-
-        const randomIndex = Math.floor(Math.random() * randomPool.length);
-        selectedStepIndex = randomPool.splice(randomIndex, 1)[0];
-        randomFinished = false;
-    }
-
-    $: if (selectedCategory) {
-        interactionMode = "scroll";
+    let prevCategory = selectedCategory;
+    $: if (selectedCategory !== prevCategory) {
+        prevCategory = selectedCategory;
         currentStep = 0;
-        selectedStepIndex = 0;
-        randomFinished = false;
-        scrollDisabled = false;
     }
 </script>
 
 <section class="l-section">
-    <Controls
-        bind:selectedCategory
-        {interactionMode}
-        bind:displayMode
-        {randomFinished}
-        {scrollDisabled}
-        onModeChange={handleModeChange}
-        onRandomRoll={handleRandomRoll}
-    />
+    <Controls bind:selectedCategory bind:displayMode />
 
-    <div class="sticky" class:is-fixed={interactionMode === "random"}>
+    <div class="sticky">
         <div class="visualization">
             <Chart {displayMode} {activeStepWrap} {activeColors} />
         </div>
-
-        {#if interactionMode === "random" && filteredSteps.length > 0}
-            <div class="minimal-random-info">
-                <span class="random-category">{activeStepWrap.step.category}</span>
-                <span class="random-desc"
-                    >{activeStepWrap.step[i18n.language]?.explanation ||
-                        i18n.t.common.notFound}</span
-                >
-                <span class="random-source">{i18n.t.common.source}</span>
-            </div>
-        {/if}
     </div>
 
-    <div class="steps" style="display: {interactionMode === 'scroll' ? 'block' : 'none'}">
+    <div class="steps">
         <Scrolly bind:value={currentStep}>
             {#each filteredSteps as item, i (item.originalIndex)}
                 <div class="step" class:active={currentStep === i}>
@@ -108,7 +50,38 @@
                             {item.step[i18n.language]?.explanation ||
                                 i18n.t.common.notFound}
                         </p>
-                        <p class="source">{i18n.t.common.source}</p>
+                        {#if item.step.sourceUrl}
+                            <p class="source">
+                                <a
+                                    href={item.step.sourceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {i18n.language === "es"
+                                        ? "Fuente: "
+                                        : "Source: "}{item.step[i18n.language]?.source ||
+                                        ""}
+                                </a>
+                            </p>
+                        {:else if item.step.sourceUrl}
+                            <p class="source">
+                                <a
+                                    href={item.step.sourceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {i18n.language === "es"
+                                        ? "Fuente: "
+                                        : "Source: "}{item.step[i18n.language]?.source ||
+                                        ""}
+                                </a>
+                            </p>
+                        {:else}
+                            <p class="source">
+                                {i18n.language === "es" ? "Fuente: " : "Source: "}{item
+                                    .step[i18n.language]?.source || ""}
+                            </p>
+                        {/if}
                     </div>
                 </div>
             {/each}
@@ -116,9 +89,7 @@
     </div>
 </section>
 
-{#if interactionMode === "scroll" || (interactionMode === "random" && randomFinished)}
-    <Footer />
-{/if}
+<Footer />
 
 <style>
     .sticky {
@@ -133,13 +104,6 @@
         overflow: hidden;
     }
 
-    .sticky.is-fixed {
-        position: relative;
-        min-height: 100vh;
-        height: auto;
-        padding: 2rem 0;
-    }
-
     .visualization {
         width: 100%;
         display: flex;
@@ -147,49 +111,10 @@
         align-items: center;
     }
 
-    .minimal-random-info {
-        position: absolute;
-        bottom: 12vh;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.2rem;
-        text-align: center;
-        width: 90%;
-        max-width: 450px;
-        opacity: 0;
-        animation: fadeIn 0.4s ease forwards;
-        pointer-events: none;
-    }
-
     @keyframes fadeIn {
         to {
             opacity: 1;
         }
-    }
-
-    .minimal-random-info .random-category {
-        font-size: 0.65rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-muted);
-        opacity: 0.7;
-    }
-
-    .minimal-random-info .random-desc {
-        font-size: 0.85rem;
-        font-weight: 400;
-        color: var(--text-muted);
-        line-height: 1.3;
-    }
-
-    .minimal-random-info .random-source {
-        font-size: 0.6rem;
-        color: var(--text-muted);
-        opacity: 0.4;
     }
 
     .steps {
