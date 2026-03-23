@@ -59,7 +59,7 @@
         >
             <form
                 method="POST"
-                action="/?/suggest"
+                action="?/suggest"
                 use:enhance={() => {
                     return async ({ result, update }) => {
                         if (result.type === "success") {
