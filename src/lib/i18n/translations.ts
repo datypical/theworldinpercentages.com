@@ -1,3 +1,5 @@
+import { updates } from "$lib/data/updates";
+
 export const translations = {
     en: {
         seo: {
@@ -5,7 +7,6 @@ export const translations = {
             description: "Exploring global data through interactive visualizations.",
         },
         common: {
-            source: "Source: Fictitious Global Survey, 2026",
             notFound: "Details not found.",
         },
         error: {
@@ -39,11 +40,27 @@ export const translations = {
             catSociety: "Society",
             catEnvironment: "Environment",
         },
+        methodology: {
+            seoTitle: "About the data | The World in Percentages",
+            seoDescription:
+                "Detailed information about the metrics, sources, and changes",
+            title: "About the data",
+            lastUpdate: "Last update",
+            subtitle: "Source documentation, updates, and selection criteria",
+            dataCriteriaTitle: "Data criteria",
+            dataCriteriaText:
+                "The data presented in this project consists of high-level global estimates. To make complex statistics easier to read and understand, percentages have been rounded to whole numbers. To ensure the reliability of the analysis, priority has been given to internationally recognized sources that are updated annually, which guarantees that the information reflects the most current global situation.",
+            changelogTitle: "Updates log",
+            contactTitle: "Contact",
+            contactText:
+                "If you have corrections or new verified sources, you can contribute via the <a href='/#contribute' class='inline-link'>form on the main page</a> or directly in the <a href='https://github.com/datypical/theworldinpercentages.com' target='_blank' rel='noopener noreferrer' class='inline-link'>repository</a>.",
+            updates: updates.en,
+        },
         end: {
             title: "No more data for now",
             message:
                 "This visualization is constantly updated with new metrics. If you want to collaborate or suggest data, click here.",
-            linkText: "Contribute to the project",
+            linkText: "Contribute",
             modal: {
                 title: "Suggest a new fact",
                 questionLabel: "Question",
@@ -71,7 +88,6 @@ export const translations = {
                 "Explora datos globales a través de visualizaciones interactivas. Descubre qué porcentaje de la población mundial tiene acceso a internet, usa redes sociales y más.",
         },
         common: {
-            source: "Fuente: Encuesta Global Ficticia, 2026",
             notFound: "Detalles no encontrados.",
         },
         error: {
@@ -105,11 +121,28 @@ export const translations = {
             catSociety: "Sociedad",
             catEnvironment: "Medioambiente",
         },
+        methodology: {
+            seoTitle: "Sobre los datos | El Mundo en Porcentajes",
+            seoDescription:
+                "Información detallada sobre las métricas, fuentes y cambios.",
+            title: "Sobre los datos",
+            lastUpdate: "Última actualización",
+            subtitle:
+                "Documentación de fuentes, actualizaciones y criterios de selección",
+            dataCriteriaTitle: "Criterios de datos",
+            dataCriteriaText:
+                "Los datos presentados en este proyecto corresponden a estimaciones globales de alto nivel. Con el fin de facilitar la legibilidad y la comprensión visual de estadísticas complejas, los porcentajes se han redondeado a números enteros. Para garantizar la fiabilidad del análisis, se ha priorizado el uso de fuentes de prestigio internacional con actualización anual, asegurando que la información refleje el panorama global más reciente.",
+            changelogTitle: "Registro de actualizaciones",
+            contactTitle: "Contacto",
+            contactText:
+                "Si tienes correcciones o nuevas fuentes verificadas, puedes contribuir a través del <a href='/es#contribute' class='inline-link'>formulario en la página principal</a> o directamente en el <a href='https://github.com/datypical/theworldinpercentages.com' target='_blank' rel='noopener noreferrer' class='inline-link'>repositorio</a>.",
+            updates: updates.es,
+        },
         end: {
             title: "No hay más datos por ahora",
             message:
                 "Esta visualización se actualiza constantemente con nuevas métricas. Si quieres colaborar o sugerir datos, haz clic aquí.",
-            linkText: "Colaborar en el proyecto",
+            linkText: "Colaborar",
             modal: {
                 title: "Sugerir un nuevo dato",
                 questionLabel: "Pregunta",
