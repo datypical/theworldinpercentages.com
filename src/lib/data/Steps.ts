@@ -12,7 +12,7 @@ export const STEPS: Step[] = [
         id: "step_1",
         percentage: 74,
         category: "health",
-        sourceUrl: "",
+        sourceUrl: "https://washdata.org/reports/jmp-2025-wash-households",
         en: {
             question: "Population with access to safe drinking water",
             explanation:
@@ -30,7 +30,8 @@ export const STEPS: Step[] = [
         id: "step_2",
         percentage: 32,
         category: "energy",
-        sourceUrl: "",
+        sourceUrl:
+            "https://ember-energy.org/latest-insights/global-electricity-review-2025/",
         en: {
             question: "Global electricity from renewable sources",
             explanation:
@@ -48,7 +49,7 @@ export const STEPS: Step[] = [
         id: "step_3",
         percentage: 10,
         category: "society",
-        sourceUrl: "",
+        sourceUrl: "https://unstats.un.org/sdgs/report/2025/",
         en: {
             question: "Population living in extreme poverty",
             explanation:
@@ -66,7 +67,8 @@ export const STEPS: Step[] = [
         id: "step_4",
         percentage: 8,
         category: "health",
-        sourceUrl: "",
+        sourceUrl:
+            "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
         en: {
             question: "Global population facing chronic hunger",
             explanation:
@@ -84,7 +86,8 @@ export const STEPS: Step[] = [
         id: "step_5",
         percentage: 93,
         category: "energy",
-        sourceUrl: "",
+        sourceUrl:
+            "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025",
         en: {
             question: "Global population with access to electricity",
             explanation:
@@ -100,62 +103,9 @@ export const STEPS: Step[] = [
     },
     {
         id: "step_6",
-        percentage: 28,
-        category: "environment",
-        sourceUrl: "",
-        en: {
-            question: "Species threatened with extinction",
-            explanation:
-                "Nearly 1 in 3 assessed species (over 48,600) is at risk of disappearing forever",
-            source: "Red List of Threatened Species 2025-2 | IUCN",
-        },
-        es: {
-            question: "Especies en peligro de extinción",
-            explanation:
-                "Casi 1 de cada 3 especies evaluadas (más de 48,600) está en riesgo de desaparecer para siempre",
-            source: "Lista Roja de Especies Amenazadas 2025-2 | UICN",
-        },
-    },
-    {
-        id: "step_7",
-        percentage: 20,
-        category: "health",
-        sourceUrl: "",
-        en: {
-            question: "Adults who consume tobacco",
-            explanation: "1 in 5 adults worldwide remains addicted to tobacco",
-            source: "Global report on trends in prevalence of tobacco use 2000–2024 | WHO",
-        },
-        es: {
-            question: "Adultos que consumen tabaco",
-            explanation:
-                "1 de cada 5 adultos en el mundo mantiene una adicción al tabaco",
-            source: "Informe mundial sobre tendencias en la prevalencia del tabaquismo 2000-2024 | OMS",
-        },
-    },
-    {
-        id: "step_8",
-        percentage: 4,
-        category: "society",
-        sourceUrl: "",
-        en: {
-            question: "International migrant population",
-            explanation:
-                "There are 304 million migrants. Today, 1 in 27 people worldwide lives outside their country of origin",
-            source: "International Migrant Stock | United Nations",
-        },
-        es: {
-            question: "Población que es migrante internacional",
-            explanation:
-                "Hay 304 millones de migrantes. 1 de cada 27 personas en el mundo vive fuera de su país de origen",
-            source: "Stock Internacional de Migrantes | Naciones Unidas",
-        },
-    },
-    {
-        id: "step_9",
         percentage: 10,
         category: "environment",
-        sourceUrl: "",
+        sourceUrl: "https://nsidc.org/data/explore-data",
         en: {
             question: "Land area covered by ice",
             explanation:
@@ -170,10 +120,65 @@ export const STEPS: Step[] = [
         },
     },
     {
+        id: "step_7",
+        percentage: 28,
+        category: "environment",
+        sourceUrl: "https://www.iucnredlist.org/",
+        en: {
+            question: "Species threatened with extinction",
+            explanation:
+                "Nearly 1 in 3 assessed species (over 48,600) is at risk of disappearing forever",
+            source: "Red List of Threatened Species 2025-2 | IUCN",
+        },
+        es: {
+            question: "Especies en peligro de extinción",
+            explanation:
+                "Casi 1 de cada 3 especies evaluadas (más de 48,600) está en riesgo de desaparecer para siempre",
+            source: "Lista Roja de Especies Amenazadas 2025-2 | UICN",
+        },
+    },
+    {
+        id: "step_8",
+        percentage: 20,
+        category: "health",
+        sourceUrl: "https://www.who.int/publications/i/item/9789240116276",
+        en: {
+            question: "Adults who consume tobacco",
+            explanation: "1 in 5 adults worldwide remains addicted to tobacco",
+            source: "Global report on trends in prevalence of tobacco use 2000–2024 | WHO",
+        },
+        es: {
+            question: "Adultos que consumen tabaco",
+            explanation:
+                "1 de cada 5 adultos en el mundo mantiene una adicción al tabaco",
+            source: "Informe mundial sobre tendencias en la prevalencia del tabaquismo 2000-2024 | OMS",
+        },
+    },
+    {
+        id: "step_9",
+        percentage: 4,
+        category: "society",
+        sourceUrl:
+            "https://www.un.org/development/desa/pd/content/international-migrant-stock",
+        en: {
+            question: "International migrant population",
+            explanation:
+                "There are 304 million migrants. Today, 1 in 27 people worldwide lives outside their country of origin",
+            source: "International Migrant Stock | United Nations",
+        },
+        es: {
+            question: "Población que es migrante internacional",
+            explanation:
+                "Hay 304 millones de migrantes. 1 de cada 27 personas en el mundo vive fuera de su país de origen",
+            source: "Stock Internacional de Migrantes | Naciones Unidas",
+        },
+    },
+    {
         id: "step_10",
         percentage: 31,
         category: "environment",
-        sourceUrl: "",
+        sourceUrl:
+            "https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en",
         en: {
             question: "Land area covered by forests",
             explanation:

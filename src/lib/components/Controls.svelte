@@ -106,7 +106,7 @@
         pointer-events: auto;
         border: 1px solid var(--border-subtle);
         border-radius: 999px;
-        padding: 0.38rem 0.9rem;
+        padding: 0 0.9rem;
         font-size: 0.82rem;
         background: var(--bg-surface);
         color: var(--text-body);
@@ -114,6 +114,8 @@
         outline: none;
         min-width: 180px;
         text-align: center;
+        height: 42px;
+        box-sizing: border-box;
     }
 
     .view-picker select:focus {
@@ -130,6 +132,8 @@
         border-radius: 999px;
         padding: 0.2rem;
         backdrop-filter: blur(6px);
+        height: 42px;
+        box-sizing: border-box;
     }
 
     .icon-toggle-btn {
@@ -165,43 +169,6 @@
         cursor: not-allowed;
     }
 
-    .divider {
-        width: 1px;
-        height: 20px;
-        background: var(--border-subtle);
-        margin: 0 0.25rem;
-    }
-
-    .action-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.3rem 0.8rem;
-        font-size: 0.75rem;
-        font-weight: 600;
-        border-radius: 999px;
-        border: none;
-        background: var(--text-body);
-        color: var(--bg-surface);
-        cursor: pointer;
-        transition:
-            opacity 0.2s ease,
-            transform 0.1s ease;
-    }
-
-    .action-btn:hover:not(:disabled) {
-        opacity: 0.85;
-    }
-
-    .action-btn:active:not(:disabled) {
-        transform: scale(0.95);
-    }
-
-    .action-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
     .icon-toggle-btn.active {
         color: var(--bg-surface);
         background: var(--text-body);
@@ -222,8 +189,7 @@
             z-index: 50;
         }
 
-        .category-control,
-        .interaction-control {
+        .category-control {
             display: none;
         }
 

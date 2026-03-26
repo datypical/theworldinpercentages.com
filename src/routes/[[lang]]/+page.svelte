@@ -39,13 +39,13 @@
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={i18n.t.seo.title} />
     <meta property="og:description" content={i18n.t.seo.description} />
-    <!-- <meta property="og:image" content="{baseUrl}/og-image.jpg" /> -->
+    <meta property="og:image" content="{baseUrl}/og-image.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={i18n.t.seo.title} />
     <meta property="twitter:description" content={i18n.t.seo.description} />
-    <!-- <meta property="twitter:image" content="{baseUrl}/og-image.jpg" /> -->
+    <meta property="twitter:image" content="{baseUrl}/og-image.png" />
 
     <link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/" />
     <link rel="alternate" hreflang="es" href="https://theworldinpercentages.com/es/" />

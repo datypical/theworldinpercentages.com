@@ -22,3 +22,17 @@ export interface CircleNode {
 }
 
 export type DisplayMode = "shape" | "waffle";
+
+export type UpdateItem = string | { text: string; subItems: string[] };
+
+export type UpdateCategory = {
+    label: string;
+    items: UpdateItem[];
+};
+
+export type UpdateLog = {
+    version: string;
+    date: string;
+    title: string;
+    changes: UpdateCategory[];
+};
