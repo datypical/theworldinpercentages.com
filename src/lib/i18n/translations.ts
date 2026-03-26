@@ -3,7 +3,7 @@ import { updates } from "$lib/data/updates";
 export const translations = {
     en: {
         seo: {
-            title: "The World in Percentage",
+            title: "The World in Percentages",
             description: "Exploring global data through interactive visualizations.",
         },
         common: {
@@ -16,7 +16,7 @@ export const translations = {
             backHome: "Return to home",
         },
         home: {
-            title: "The World in Percentage",
+            title: "The World in Percentages",
             intro: "A visual exploration of our world.",
             by: "By",
             explanation:

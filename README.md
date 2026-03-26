@@ -1,6 +1,6 @@
-# The World in Percentage
+# The World in Percentages
 
-The World in Percentage is an interactive data visualization project that breaks down massive global statistics into a simple 100-unit grid. By representing each 1% of any given dataset with a single icon, the project aims to make complex data more relatable and accessible.
+The World in Percentages is an interactive data visualization project that breaks down massive global statistics into a simple 100-unit grid. By representing each 1% of any given dataset with a single icon, the project aims to make complex data more relatable and accessible.
 
 ## Tech Stack
 
