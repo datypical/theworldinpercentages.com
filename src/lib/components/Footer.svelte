@@ -18,7 +18,7 @@
     }
 </script>
 
-<footer class="cta-footer">
+<footer class="cta-footer" id="contribute">
     <div class="cta-content">
         <h3>{i18n.t.end.title || "No more data for now"}</h3>
         <p>
@@ -26,7 +26,7 @@
                 "This visualization is constantly updated with new metrics."}
         </p>
         <button on:click={openModal} class="btn-collaborate">
-            {i18n.t.end.linkText || "Contribute to the project"}
+            {i18n.t.end.linkText || "Contribute"}
         </button>
     </div>
 </footer>
@@ -231,6 +231,14 @@
     .btn-collaborate:hover {
         opacity: 0.9;
         transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .btn-collaborate {
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            width: auto;
+        }
     }
 
     .modal-backdrop {
