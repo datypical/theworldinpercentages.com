@@ -5,6 +5,7 @@
 
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
+    import { page } from "$app/stores";
     import { i18n } from "$lib/i18n/i18n.svelte";
 
     let theme = $state("dark");
@@ -40,6 +41,14 @@
 </script>
 
 <div class="global-controls">
+    <a
+        href="{i18n.language === 'es' ? '/es' : ''}/data"
+        class="nav-link"
+        data-sveltekit-preload-data="tap"
+        title={i18n.t.methodology.title}
+    >
+        {i18n.t.methodology.title}
+    </a>
     <button
         class="icon-btn"
         onclick={toggleTheme}
@@ -100,10 +109,19 @@
         value={i18n.language}
         onchange={(e) => {
             const target = e.target as HTMLSelectElement;
-            if (target.value === "en") {
-                goto("/");
+            const newLang = target.value;
+            let currentPath = $page.url.pathname;
+
+            if (currentPath.startsWith("/es/")) {
+                currentPath = currentPath.substring(3);
+            } else if (currentPath === "/es") {
+                currentPath = "/";
+            }
+
+            if (newLang === "en") {
+                goto(currentPath);
             } else {
-                goto("/" + target.value);
+                goto("/" + newLang + (currentPath === "/" ? "" : currentPath));
             }
         }}
         aria-label="Change language"
@@ -116,6 +134,40 @@
 {@render children?.()}
 
 <style>
+    .nav-link {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-decoration: none;
+        padding: 0 0.8rem;
+        border-radius: 999px;
+        transition: all 0.2s ease;
+        background: transparent;
+        margin-right: 0.25rem;
+        display: flex;
+        align-items: center;
+        height: 38px;
+        line-height: 1;
+    }
+
+    .nav-link:hover {
+        color: var(--text-heading);
+        background: var(--bg-surface);
+    }
+
+    @media (max-width: 600px) {
+        .nav-link {
+            font-size: 0.8rem;
+            padding: 0 0.5rem;
+            margin-right: 0;
+            white-space: nowrap;
+        }
+
+        .global-controls {
+            gap: 0.4rem;
+        }
+    }
+
     .global-controls {
         position: fixed;
         top: 1rem;
