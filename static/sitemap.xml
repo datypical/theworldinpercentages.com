@@ -17,21 +17,6 @@
   </url>
 
   <url>
-    <loc>https://theworldinpercentages.com/guess</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theworldinpercentages.com/guess" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/guess" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://theworldinpercentages.com/es/guess" />
-    <lastmod>2026-03-29</lastmod>
-  </url>
-  <url>
-    <loc>https://theworldinpercentages.com/es/guess</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://theworldinpercentages.com/guess" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/guess" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://theworldinpercentages.com/es/guess" />
-    <lastmod>2026-03-29</lastmod>
-  </url>
-
-  <url>
     <loc>https://theworldinpercentages.com/data</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theworldinpercentages.com/data" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/data" />
