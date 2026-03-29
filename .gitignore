@@ -31,3 +31,6 @@ playwright/.cache/
 
 # Husky
 .husky/_
+
+# Nothing to see here :)
+src/routes/\[\[lang\]\]/story/

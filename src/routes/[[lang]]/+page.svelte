@@ -3,7 +3,7 @@
     import { i18n } from "$lib/i18n/i18n.svelte";
 
     const baseUrl = "https://theworldinpercentages.com";
-    $: canonicalUrl = baseUrl + (i18n.language === "es" ? "/es/" : "/");
+    $: canonicalUrl = baseUrl + (i18n.language === "es" ? "/es" : "");
 
     $: jsonLd = {
         "@context": "https://schema.org",
@@ -47,13 +47,6 @@
     <meta property="twitter:description" content={i18n.t.seo.description} />
     <meta property="twitter:image" content="{baseUrl}/og-image.png" />
 
-    <link rel="alternate" hreflang="en" href="https://theworldinpercentages.com/" />
-    <link rel="alternate" hreflang="es" href="https://theworldinpercentages.com/es/" />
-    <link
-        rel="alternate"
-        hreflang="x-default"
-        href="https://theworldinpercentages.com/"
-    />
     {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 
     <script

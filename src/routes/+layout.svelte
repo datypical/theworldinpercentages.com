@@ -38,7 +38,39 @@
     function toggleTheme() {
         theme = theme === "dark" ? "light" : "dark";
     }
+
+    let baseEnPath = $derived(
+        $page.url.pathname.startsWith("/es")
+            ? $page.url.pathname.substring(3)
+            : $page.url.pathname,
+    );
+    let finalEnPath = $derived(baseEnPath === "/" ? "" : baseEnPath);
+
+    let baseEsPath = $derived(
+        $page.url.pathname.startsWith("/es")
+            ? $page.url.pathname
+            : "/es" + ($page.url.pathname === "/" ? "" : $page.url.pathname),
+    );
+    let finalEsPath = $derived(baseEsPath === "/es/" ? "/es" : baseEsPath);
 </script>
+
+<svelte:head>
+    <link
+        rel="alternate"
+        hreflang="x-default"
+        href="https://theworldinpercentages.com{finalEnPath}"
+    />
+    <link
+        rel="alternate"
+        hreflang="en"
+        href="https://theworldinpercentages.com{finalEnPath}"
+    />
+    <link
+        rel="alternate"
+        hreflang="es"
+        href="https://theworldinpercentages.com{finalEsPath}"
+    />
+</svelte:head>
 
 <div class="global-controls">
     <a
@@ -113,9 +145,9 @@
             let currentPath = $page.url.pathname;
 
             if (currentPath.startsWith("/es/")) {
-                currentPath = currentPath.substring(3);
+                currentPath = currentPath.substring(3) as any;
             } else if (currentPath === "/es") {
-                currentPath = "/";
+                currentPath = "/" as any;
             }
 
             if (newLang === "en") {
