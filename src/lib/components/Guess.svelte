@@ -56,10 +56,12 @@
         } else {
             let guess = uGuess || 0;
             if (guess <= tCount) {
-                if (item >= guess && item < tCount) return 0.25;
+                if (item < guess) return 0.35;
+                if (item >= guess && item < tCount) return 1.0;
                 return 1.0;
             } else {
-                if (item >= tCount && item < guess) return 0.25;
+                if (item < tCount) return 1.0;
+                if (item >= tCount && item < guess) return 0.35;
                 return 1.0;
             }
         }

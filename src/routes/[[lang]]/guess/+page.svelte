@@ -6,6 +6,7 @@
     let currentIndex = 0;
     let userGuess: number | null = null;
     let hasGuessed = false;
+    let isFinished = false;
 
     let steps = [...STEPS];
 
@@ -25,12 +26,17 @@
             userGuess = null;
             hasGuessed = false;
         } else {
-            currentIndex = 0;
-            userGuess = null;
-            hasGuessed = false;
-            steps.sort(() => Math.random() - 0.5);
-            steps = steps;
+            isFinished = true;
         }
+    }
+
+    function resetGame() {
+        isFinished = false;
+        currentIndex = 0;
+        userGuess = null;
+        hasGuessed = false;
+        steps.sort(() => Math.random() - 0.5);
+        steps = steps;
     }
 </script>
 
@@ -49,7 +55,20 @@
     </header>
 
     <main class="game-board">
-        {#if activeStep}
+        {#if isFinished}
+            <div class="finished-container">
+                <h2>{i18n.t.guess.finishedTitle}</h2>
+                <p>{i18n.t.guess.finishedMessage}</p>
+                <div class="actions">
+                    <a href={i18n.language === "es" ? "/es" : "/"} class="next-btn">
+                        {i18n.t.guess.exploreData}
+                    </a>
+                    <button class="next-btn btn-secondary" on:click={resetGame}>
+                        {i18n.t.guess.playAgain}
+                    </button>
+                </div>
+            </div>
+        {:else if activeStep}
             <Guess
                 {activeStep}
                 {activeColor}
@@ -148,6 +167,52 @@
     .next-btn:hover {
         transform: translateY(-2px);
         opacity: 0.9;
+    }
+
+    .finished-container {
+        text-align: center;
+        max-width: 600px;
+        margin: 4rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .finished-container h2 {
+        font-size: 2.5rem;
+        color: var(--text-heading);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .finished-container p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .finished-container .actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    a.next-btn {
+        text-decoration: none;
     }
 
     @media (max-width: 768px) {

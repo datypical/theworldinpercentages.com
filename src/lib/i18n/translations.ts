@@ -45,7 +45,7 @@ export const translations = {
         guess: {
             title: "Guess the percentage",
             subtitle:
-                "Test your instincts with the same statistics from the main page. How accurate is your intuition?",
+                "Test your instincts with the same facts from the main page. How accurate is your intuition?",
             backToHome: "Back to home",
             nextQuestion: "Next percentage",
             clickHint: "Click on the squares to guess the percentage",
@@ -57,6 +57,11 @@ export const translations = {
             winMargin: "(within ±5%).",
             overshot: "You overshot by ",
             short: "You were short by ",
+            finishedTitle: "You've completed all the guesses!",
+            finishedMessage:
+                "You've gone through all the available facts. Want to explore them in detail or try again?",
+            exploreData: "Explore the data",
+            playAgain: "Play again",
         },
         methodology: {
             seoTitle: "About the data | The World in Percentages",
@@ -144,7 +149,7 @@ export const translations = {
         guess: {
             title: "Adivina el porcentaje",
             subtitle:
-                "Pon a prueba tu instinto con las mismas estadísticas de la página principal. ¿Qué tan certera es tu intuición?",
+                "Pon a prueba tu instinto con los mismos datos de la página principal. ¿Qué tan certera es tu intuición?",
             backToHome: "Volver al inicio",
             nextQuestion: "Siguiente porcentaje",
             clickHint: "Haz clic en el cuadro para adivinar el porcentaje",
@@ -156,6 +161,11 @@ export const translations = {
             winMargin: "(margen de ±5%).",
             overshot: "Te pasaste por ",
             short: "Te faltó ",
+            finishedTitle: "¡Has completado todas las preguntas!",
+            finishedMessage:
+                "Has recorrido todos los datos disponibles. ¿Quieres explorarlos en detalle o jugar de nuevo?",
+            exploreData: "Explorar los datos",
+            playAgain: "Jugar de nuevo",
         },
         methodology: {
             seoTitle: "Sobre los datos | El Mundo en Porcentajes",
