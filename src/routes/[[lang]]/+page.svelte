@@ -48,14 +48,6 @@
     <meta property="twitter:image" content="{baseUrl}/og-image.png" />
 
     {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
-
-    <script
-        src="https://cdn.usefathom.com/script.js"
-        data-site="PSLAGHDJ"
-        data-spa="auto"
-        defer
-    >
-    </script>
 </svelte:head>
 
 <main class="l-container">
