@@ -21,6 +21,8 @@ export const translations = {
             by: "By",
             explanation:
                 "As you explore below, you'll discover facts about the global population. In this visualization, every single icon represents exactly 1% of humanity, making large global statistics easier to understand at a glance.",
+            guessInvite: "Want to test your intuition? You can also try to ",
+            guessInviteLink: "guess the percentages",
         },
         controls: {
             interactionMode: "Interaction mode",
@@ -39,6 +41,22 @@ export const translations = {
             catEnergy: "Energy",
             catSociety: "Society",
             catEnvironment: "Environment",
+        },
+        guess: {
+            title: "Guess the percentage",
+            subtitle:
+                "Test your instincts with the same statistics from the main page. How accurate is your intuition?",
+            backToHome: "Back to home",
+            nextQuestion: "Next percentage",
+            clickHint: "Click on the squares to guess the percentage",
+            yourGuess: "Your guess",
+            actual: "Actual",
+            legendCorrect: "Correct",
+            legendDifference: "Difference",
+            winExact: "Great job! Accurate guess ",
+            winMargin: "(within ±5%).",
+            overshot: "You overshot by ",
+            short: "You were short by ",
         },
         methodology: {
             seoTitle: "About the data | The World in Percentages",
@@ -102,6 +120,8 @@ export const translations = {
             by: "Por",
             explanation:
                 "A medida que exploras, descubrirás realidades sobre la población global. En esta visualización, cada ícono representa exactamente al 1% de la humanidad, acercándonos a estadísticas que suelen ser difíciles de dimensionar.",
+            guessInvite: "¿Quieres poner a prueba tu intuición? También puedes intentar ",
+            guessInviteLink: "adivinar los porcentajes",
         },
         controls: {
             interactionMode: "Modo de interacción",
@@ -120,6 +140,22 @@ export const translations = {
             catEnergy: "Energía",
             catSociety: "Sociedad",
             catEnvironment: "Medioambiente",
+        },
+        guess: {
+            title: "Adivina el porcentaje",
+            subtitle:
+                "Pon a prueba tu instinto con las mismas estadísticas de la página principal. ¿Qué tan certera es tu intuición?",
+            backToHome: "Volver al inicio",
+            nextQuestion: "Siguiente porcentaje",
+            clickHint: "Haz clic en el cuadro para adivinar el porcentaje",
+            yourGuess: "Tu intento",
+            actual: "Realidad",
+            legendCorrect: "Acierto",
+            legendDifference: "Diferencia",
+            winExact: "¡Muy bien! Adivinaste con éxito ",
+            winMargin: "(margen de ±5%).",
+            overshot: "Te pasaste por ",
+            short: "Te faltó ",
         },
         methodology: {
             seoTitle: "Sobre los datos | El Mundo en Porcentajes",

@@ -39,6 +39,14 @@
         theme = theme === "dark" ? "light" : "dark";
     }
 
+    let isHomePage = $derived(
+        $page.url.pathname === "/" ||
+            $page.url.pathname === "/es" ||
+            $page.url.pathname === "/es/",
+    );
+    let isDataPage = $derived($page.url.pathname.includes("/data"));
+    let isGuessPage = $derived($page.url.pathname.includes("/guess"));
+
     let baseEnPath = $derived(
         $page.url.pathname.startsWith("/es")
             ? $page.url.pathname.substring(3)
@@ -73,14 +81,27 @@
 </svelte:head>
 
 <div class="global-controls">
-    <a
-        href="{i18n.language === 'es' ? '/es' : ''}/data"
-        class="nav-link"
-        data-sveltekit-preload-data="tap"
-        title={i18n.t.methodology.title}
-    >
-        {i18n.t.methodology.title}
-    </a>
+    {#if !isHomePage}
+        <a
+            href={i18n.language === "es" ? "/es" : "/"}
+            class="nav-link special"
+            data-sveltekit-preload-data="tap"
+            title={i18n.t.error.backHome}
+        >
+            ← {i18n.t.error.backHome}
+        </a>
+    {/if}
+
+    {#if !isDataPage}
+        <a
+            href="{i18n.language === 'es' ? '/es' : ''}/data"
+            class="nav-link"
+            data-sveltekit-preload-data="tap"
+            title={i18n.t.methodology.title}
+        >
+            {i18n.t.methodology.title}
+        </a>
+    {/if}
     <button
         class="icon-btn"
         onclick={toggleTheme}
@@ -185,6 +206,16 @@
     .nav-link:hover {
         color: var(--text-heading);
         background: var(--bg-surface);
+    }
+
+    .nav-link.special {
+        color: var(--text-heading);
+    }
+
+    .nav-link.special:hover {
+        opacity: 0.9;
+        text-decoration: underline;
+        color: var(--text-heading);
     }
 
     @media (max-width: 600px) {

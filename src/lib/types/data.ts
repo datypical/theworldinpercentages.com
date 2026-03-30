@@ -2,6 +2,7 @@ export interface LocalizedText {
     question: string;
     explanation: string;
     source?: string;
+    guessQuestion?: string;
 }
 
 export interface Step {
