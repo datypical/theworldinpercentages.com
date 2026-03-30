@@ -1,6 +1,7 @@
 <script lang="ts">
     import { i18n } from "$lib/i18n/i18n.svelte";
     import type { DisplayMode } from "$lib/types/data";
+    import ScrollProgress from "./ScrollProgress.svelte";
 
     export let selectedCategory: string;
     export let displayMode: DisplayMode;
@@ -74,6 +75,8 @@
     </div>
 </div>
 
+<ScrollProgress />
+
 <style>
     .view-picker {
         position: sticky;
@@ -105,7 +108,7 @@
     .view-picker select {
         pointer-events: auto;
         border: 1px solid var(--border-subtle);
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         padding: 0 0.9rem;
         font-size: 0.82rem;
         background: var(--bg-surface);
@@ -129,7 +132,7 @@
         gap: 0.25rem;
         background: var(--bg-surface);
         border: 1px solid var(--border-subtle);
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         padding: 0.2rem;
         backdrop-filter: blur(6px);
         height: 42px;

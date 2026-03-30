@@ -9,10 +9,6 @@
 
 <div class="data-log-container">
     <header class="header">
-        <a href={i18n.language === "es" ? "/es" : "/"} class="back-link">
-            ← {i18n.t.error.backHome}
-        </a>
-
         <div class="last-update">
             {i18n.t.methodology.lastUpdate}: {i18n.t.methodology.updates[0].date}
         </div>
@@ -90,20 +86,6 @@
         margin-bottom: 2rem;
         border-bottom: 1px solid var(--border-color, var(--border-subtle));
         padding-bottom: 1.5rem;
-    }
-
-    .back-link {
-        display: inline-block;
-        margin-bottom: 2rem;
-        color: var(--text-muted);
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: color 0.2s;
-    }
-
-    .back-link:hover {
-        color: var(--text-heading);
     }
 
     .header h1 {

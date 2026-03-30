@@ -76,8 +76,37 @@
             <p class="text-intro">
                 {i18n.t.home.explanation}
             </p>
+            <p class="text-intro play-invite">
+                {i18n.t.home.guessInvite}
+                <a
+                    href={i18n.language === "es" ? "/es/guess" : "/guess"}
+                    class="guess-link"
+                    data-sveltekit-preload-data="tap"
+                >
+                    {i18n.t.home.guessInviteLink}
+                </a>.
+            </p>
         </div>
     </section>
 
     <Viewer />
 </main>
+
+<style>
+    .play-invite {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: var(--text-muted);
+    }
+
+    .guess-link {
+        color: var(--text-heading);
+        font-weight: 500;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .guess-link:hover {
+        opacity: 0.8;
+    }
+</style>
