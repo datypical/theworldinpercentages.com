@@ -150,8 +150,8 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        background: #ffffff;
-        color: #111111;
+        background: var(--text-heading);
+        color: var(--bg-canvas);
         border: none;
         padding: 0.75rem 1.5rem;
         border-radius: 999px;
@@ -203,12 +203,12 @@
 
     .btn-secondary {
         background: transparent;
-        border: 2px solid white;
-        color: white;
+        border: 2px solid var(--text-heading);
+        color: var(--text-heading);
     }
 
     .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--bg-surface-alt);
     }
 
     a.next-btn {

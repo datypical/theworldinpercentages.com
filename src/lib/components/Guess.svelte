@@ -181,9 +181,17 @@
 
             <g
                 class="waffle-cell-group"
+                role="button"
+                tabindex="0"
                 style="transform: translate({x}px, {y}px);"
                 on:mouseenter={() => !hasGuessed && (hoverIndex = item)}
                 on:click={() => handleInteraction(item)}
+                on:keydown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        handleInteraction(item);
+                        e.preventDefault();
+                    }
+                }}
             >
                 <rect
                     width={cellSize}
@@ -292,8 +300,6 @@
         font-weight: 600;
         margin-top: 1rem;
         padding: 0.5rem;
-        border-radius: 4px;
-        background: var(--bg-surface);
     }
 
     .slot-actions {
