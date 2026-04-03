@@ -220,6 +220,16 @@
         color: var(--text-muted);
     }
 
+    :global(.change-category .sub-items li .inline-link) {
+        color: var(--text-muted);
+        text-decoration-color: var(--border-subtle);
+    }
+
+    :global(.change-category .sub-items li .inline-link:hover) {
+        color: var(--text-body);
+        text-decoration-color: var(--text-body);
+    }
+
     .change-category .sub-items li::before {
         content: "-";
         color: var(--border-focus);

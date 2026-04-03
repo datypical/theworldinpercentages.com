@@ -2,6 +2,7 @@
     import { i18n } from "$lib/i18n/i18n.svelte";
     import type { DisplayMode } from "$lib/types/data";
     import ScrollProgress from "./ScrollProgress.svelte";
+    import { CATEGORIES } from "$lib/data/Categories";
 
     export let selectedCategory: string;
     export let displayMode: DisplayMode;
@@ -12,12 +13,11 @@
         <label for="category-mode">{i18n.t.controls.category || "Category"}</label>
         <select id="category-mode" bind:value={selectedCategory}>
             <option value="all">{i18n.t.controls.catAll || "All"}</option>
-            <option value="health">{i18n.t.controls.catHealth || "Health"}</option>
-            <option value="energy">{i18n.t.controls.catEnergy || "Energy"}</option>
-            <option value="society">{i18n.t.controls.catSociety || "Society"}</option>
-            <option value="environment"
-                >{i18n.t.controls.catEnvironment || "Environment"}</option
-            >
+            {#each CATEGORIES as category (category.id)}
+                <option value={category.id}
+                    >{i18n.t.controls[category.key] || category.id}</option
+                >
+            {/each}
         </select>
     </div>
 

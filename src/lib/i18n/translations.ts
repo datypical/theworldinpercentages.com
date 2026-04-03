@@ -37,10 +37,13 @@ export const translations = {
             category: "Category",
             catAll: "All categories",
 
-            catHealth: "Health",
-            catEnergy: "Energy",
-            catSociety: "Society",
+            catEconomy: "Economy",
+            catEducation: "Education",
             catEnvironment: "Environment",
+            catHealth: "Health",
+            catHumanRights: "Human Rights",
+            catPolitics: "Politics",
+            catSociety: "Society",
         },
         guess: {
             title: "Guess the percentage",
@@ -141,10 +144,13 @@ export const translations = {
             category: "Categoría",
             catAll: "Todas las categorías",
 
-            catHealth: "Salud",
-            catEnergy: "Energía",
-            catSociety: "Sociedad",
+            catEconomy: "Economía",
+            catEducation: "Educación",
             catEnvironment: "Medioambiente",
+            catHealth: "Salud",
+            catHumanRights: "Derechos humanos",
+            catPolitics: "Política",
+            catSociety: "Sociedad",
         },
         guess: {
             title: "Adivina el porcentaje",

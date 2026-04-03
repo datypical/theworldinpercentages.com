@@ -15,6 +15,52 @@ import type { UpdateLog } from "$lib/types/data";
 export const updates: Record<"en" | "es", UpdateLog[]> = {
     en: [
         {
+            version: "v1.1.0",
+            date: "April 2026",
+            title: "'Guess' mode, new data and user interface update",
+            changes: [
+                {
+                    label: "Added",
+                    items: [
+                        "New 'Guess' mode to test intuition",
+                        "Scroll progress indicator",
+                        {
+                            text: "10 new global facts:",
+                            subItems: [
+                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a>",
+                                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population owning 75% of global wealth</a>",
+                                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population with no religious affiliation</a>",
+                                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Children engaged in child labour</a>",
+                                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population living in cities</a>",
+                                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Global adult literacy rate</a>",
+                                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living with a mental disorder</a>",
+                                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Women who have experienced violence</a>",
+                                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries with full marriage equality</a>",
+                                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Children and youth out of school</a>",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    label: "Changed",
+                    items: [
+                        {
+                            text: "Expanded and reorganized data categories into 7 new themes (economy, education, environment, health, human rights, politics, society) for better filtering. The following initial facts were reclassified:",
+                            subItems: [
+                                "Population with access to safe drinking water: Health → Human Rights",
+                                "Global electricity from renewable sources: Energy → Environment",
+                                "Population living in extreme poverty: Society → Economy",
+                                "Global population facing chronic hunger: Health → Human Rights",
+                                "Global population with access to electricity: Energy → Human Rights",
+                            ],
+                        },
+                        "Redesigned navigation buttons to enhance usability and accessibility",
+                        "Optimized canonical links and sitemap structure",
+                    ],
+                },
+            ],
+        },
+        {
             version: "v1.0.0",
             date: "March 2026",
             title: "Initial launch",
@@ -49,6 +95,52 @@ export const updates: Record<"en" | "es", UpdateLog[]> = {
         },
     ],
     es: [
+        {
+            version: "v1.1.0",
+            date: "Abril 2026",
+            title: "Modo 'Adivina', nuevos datos y actualización de la interfaz de usuario",
+            changes: [
+                {
+                    label: "Agregado",
+                    items: [
+                        "Nuevo modo 'Adivina' para poner a prueba la intuición",
+                        "Indicador de progreso de scroll",
+                        {
+                            text: "10 nuevos datos globales:",
+                            subItems: [
+                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a>",
+                                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que posee el 75% de la riqueza mundial</a>",
+                                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población sin afiliación religiosa</a>",
+                                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y niñas en situación de trabajo infantil</a>",
+                                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial que vive en ciudades</a>",
+                                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Tasa mundial de alfabetización en adultos</a>",
+                                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que vive con un trastorno mental</a>",
+                                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Mujeres que han sufrido violencia</a>",
+                                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países con matrimonio igualitario pleno</a>",
+                                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y jóvenes fuera del sistema escolar</a>",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    label: "Cambiado",
+                    items: [
+                        {
+                            text: "Categorías de datos ampliadas y reorganizadas en 7 temáticas nuevas (economía, educación, medioambiente, salud, derechos humanos, política, sociedad) para un mejor filtrado. Se reclasificaron los siguientes datos iniciales:",
+                            subItems: [
+                                "Población con acceso a agua potable segura: Salud → Derechos humanos",
+                                "Electricidad mundial por fuentes renovables: Energía → Medioambiente",
+                                "Población en situación de pobreza extrema: Sociedad → Economía",
+                                "Población mundial con hambre crónica: Salud → Derechos humanos",
+                                "Población mundial con acceso a electricidad: Energía → Derechos humanos",
+                            ],
+                        },
+                        "Rediseño de botones de navegación para facilitar su uso y accesibilidad",
+                        "Optimización de los enlaces canónicos y la estructura del sitemap",
+                    ],
+                },
+            ],
+        },
         {
             version: "v1.0.0",
             date: "Marzo 2026",

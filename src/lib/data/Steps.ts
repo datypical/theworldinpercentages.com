@@ -11,7 +11,7 @@ export const STEPS: Step[] = [
     {
         id: "step_1",
         percentage: 74,
-        category: "health",
+        category: "human rights",
         sourceUrl: "https://washdata.org/reports/jmp-2025-wash-households",
         en: {
             question: "Population with access to safe drinking water",
@@ -33,7 +33,7 @@ export const STEPS: Step[] = [
     {
         id: "step_2",
         percentage: 32,
-        category: "energy",
+        category: "environment",
         sourceUrl:
             "https://ember-energy.org/latest-insights/global-electricity-review-2025/",
         en: {
@@ -56,7 +56,7 @@ export const STEPS: Step[] = [
     {
         id: "step_3",
         percentage: 10,
-        category: "society",
+        category: "economy",
         sourceUrl: "https://unstats.un.org/sdgs/report/2025/",
         en: {
             question: "Population living in extreme poverty",
@@ -78,7 +78,7 @@ export const STEPS: Step[] = [
     {
         id: "step_4",
         percentage: 8,
-        category: "health",
+        category: "human rights",
         sourceUrl:
             "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
         en: {
@@ -101,7 +101,7 @@ export const STEPS: Step[] = [
     {
         id: "step_5",
         percentage: 93,
-        category: "energy",
+        category: "human rights",
         sourceUrl:
             "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025",
         en: {
@@ -159,7 +159,7 @@ export const STEPS: Step[] = [
         es: {
             question: "Especies en peligro de extinción",
             guessQuestion:
-                "¿Qué porcentaje de las especies evaluadas globalmente está en peligro de extinción?",
+                "¿Qué porcentaje de las especies evaluadas a nivel mundial está en peligro de extinción?",
             explanation:
                 "Casi 1 de cada 3 especies evaluadas (más de 48,600) está en riesgo de desaparecer para siempre",
             source: "Lista Roja de Especies Amenazadas 2025-2 | UICN",
@@ -228,6 +228,227 @@ export const STEPS: Step[] = [
             explanation:
                 "Los bosques ocupan el 31% del planeta. Más de la mitad de esta riqueza natural se concentra en solo cinco países",
             source: "El estado de los bosques del mundo 2024 | FAO",
+        },
+    },
+    {
+        id: "step_11",
+        percentage: 15,
+        category: "politics",
+        sourceUrl: "https://www.eiu.com/n/campaigns/democracy-index-2024/",
+        en: {
+            question: "Countries considered full democracies",
+            guessQuestion:
+                "What percentage of countries in the world are considered full democracies?",
+            explanation:
+                "Only 15% of countries (25 nations) are full democracies. Meanwhile, the global democratic index continues its decline, driven by reversals in several regions and the hardening of authoritarian regimes",
+            source: "Democracy Index 2024 | EIU",
+        },
+        es: {
+            question: "Países considerados democracias plenas",
+            guessQuestion:
+                "¿Qué porcentaje de los países del mundo se consideran democracias plenas?",
+            explanation:
+                "Solo el 15% de los países (25 naciones) son democracias plenas. Mientras tanto, el índice global sigue cayendo, impulsado por retrocesos en varias regiones y el endurecimiento de regímenes autoritarios",
+            source: "Índice de Democracia 2024 | EIU",
+        },
+    },
+    {
+        id: "step_12",
+        percentage: 10,
+        category: "economy",
+        sourceUrl: "https://wir2026.wid.world/",
+        en: {
+            question: "Population owning 75% of global wealth",
+            guessQuestion:
+                "What percentage of the global population owns 75% of total wealth?",
+            explanation:
+                "Only the richest 10% of the world owns 75% of all existing wealth (properties, stocks, savings), highlighting a profound inequality",
+            source: "World Inequality Report 2026 | World Inequality Lab",
+        },
+        es: {
+            question: "Población que posee el 75% de la riqueza mundial",
+            guessQuestion:
+                "¿Qué porcentaje de la población mundial posee el 75% de la riqueza total?",
+            explanation:
+                "Solo el 10% más rico del mundo concentra el 75% de toda la riqueza existente (propiedades, acciones, ahorros), evidenciando una profunda desigualdad",
+            source: "Informe sobre la Desigualdad Global 2026 | World Inequality Lab",
+        },
+    },
+    {
+        id: "step_13",
+        percentage: 24,
+        category: "society",
+        sourceUrl:
+            "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/",
+        en: {
+            question: "Population with no religious affiliation",
+            guessQuestion:
+                "What percentage of the global population has no religious affiliation?",
+            explanation:
+                "Nearly 1 in 4 people worldwide do not identify with any religion",
+            source: "How the Global Religious Landscape Changed From 2010 to 2020 | Pew Research Center",
+        },
+        es: {
+            question: "Población sin afiliación religiosa",
+            guessQuestion:
+                "¿Qué porcentaje de la población mundial no tiene afiliación religiosa?",
+            explanation:
+                "Cerca de 1 de cada 4 personas en el mundo no se identifica con ninguna religión",
+            source: "Cómo ha cambiado el panorama religioso mundial entre 2010 y 2020 | Pew Research Center",
+        },
+    },
+    {
+        id: "step_14",
+        percentage: 8,
+        category: "human rights",
+        sourceUrl:
+            "https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward",
+        en: {
+            question: "Children engaged in child labour",
+            guessQuestion:
+                "What percentage of children worldwide are engaged in child labour?",
+            explanation:
+                "Affects roughly 138 million children. Of these, 54 million are engaged in hazardous work that endangers their health and development",
+            source: "Child Labour: Global estimates 2024 | ILO and UNICEF",
+        },
+        es: {
+            question: "Niños y niñas en situación de trabajo infantil",
+            guessQuestion:
+                "¿Qué porcentaje de los niños del mundo se encuentra en situación de trabajo infantil?",
+            explanation:
+                "Afecta a unos 138 millones de niños. De ellos, 54 millones realizan trabajos peligrosos que ponen en riesgo su salud y desarrollo",
+            source: "Trabajo Infantil: Estimaciones Mundiales 2024 | OIT y UNICEF",
+        },
+    },
+    {
+        id: "step_15",
+        percentage: 45,
+        category: "society",
+        sourceUrl:
+            "https://www.un.org/development/desa/pd/world-urbanization-prospects-2025",
+        en: {
+            question: "Global population living in cities",
+            guessQuestion: "What percentage of the global population lives in cities?",
+            explanation:
+                "45% of the global population lives in cities. This figure represents more than double the proportion recorded in 1950",
+            source: "World Urbanization Prospects 2025 | United Nations",
+        },
+        es: {
+            question: "Población mundial que vive en ciudades",
+            guessQuestion: "¿Qué porcentaje de la población mundial vive en ciudades?",
+            explanation:
+                "El 45% de la población mundial vive en ciudades. Esta cifra representa más del doble de la proporción registrada en 1950",
+            source: "Perspectivas de Urbanización Mundial 2025 | Naciones Unidas",
+        },
+    },
+    {
+        id: "step_16",
+        percentage: 88,
+        category: "education",
+        sourceUrl: "https://www.unesco.org/en/days/literacy",
+        en: {
+            question: "Global adult literacy rate",
+            guessQuestion:
+                "What percentage of the global adult population can read and write?",
+            explanation:
+                "The adult literacy rate reached 88% in 2024, reflecting steady progress and the expansion of basic education",
+            source: "International Literacy Day 2025 | UNESCO",
+        },
+        es: {
+            question: "Tasa mundial de alfabetización en adultos",
+            guessQuestion:
+                "¿Qué porcentaje de la población adulta mundial sabe leer y escribir?",
+            explanation:
+                "La tasa de alfabetización de adultos alcanzó el 88% en 2024, reflejando un progreso constante y la expansión de la educación básica",
+            source: "Día Internacional de la Alfabetización 2025 | UNESCO",
+        },
+    },
+    {
+        id: "step_17",
+        percentage: 14,
+        category: "health",
+        sourceUrl: "https://www.who.int/publications/i/item/9789240113817",
+        en: {
+            question: "Population living with a mental disorder",
+            guessQuestion:
+                "What percentage of the global population lives with a mental disorder?",
+            explanation:
+                "Affects over one billion people. Anxiety and depression are the most common disorders, and many still lack access to necessary treatment",
+            source: "World Mental Health Report 2025 | WHO",
+        },
+        es: {
+            question: "Población que vive con un trastorno mental",
+            guessQuestion:
+                "¿Qué porcentaje de la población mundial vive con un trastorno mental?",
+            explanation:
+                "Afecta a más de mil millones de personas. La ansiedad y la depresión son los trastornos más comunes, y muchos aún no reciben el tratamiento necesario",
+            source: "Informe Mundial sobre Salud Mental 2025 | OMS",
+        },
+    },
+    {
+        id: "step_18",
+        percentage: 30,
+        category: "human rights",
+        sourceUrl: "https://www.who.int/publications/i/item/9789240116962",
+        en: {
+            question: "Women who have experienced violence",
+            guessQuestion:
+                "What percentage of women worldwide have experienced physical or sexual violence?",
+            explanation:
+                "Nearly 1 in 3 women has been subjected to violence by a partner or sexual violence by a non-partner. This represents around 840 million women",
+            source: "Violence against women prevalence estimates 2023 | WHO and United Nations",
+        },
+        es: {
+            question: "Mujeres que han sufrido violencia",
+            guessQuestion:
+                "¿Qué porcentaje de mujeres en el mundo ha sufrido violencia física o sexual?",
+            explanation:
+                "Casi 1 de cada 3 mujeres ha sido víctima de violencia por parte de su pareja o violencia sexual por terceros. Representa a unas 840 millones de mujeres",
+            source: "Estimaciones de prevalencia de la violencia contra la mujer 2023 | OMS y Naciones Unidas",
+        },
+    },
+    {
+        id: "step_19",
+        percentage: 18,
+        category: "politics",
+        sourceUrl: "https://ilga.org/laws-on-us-report/",
+        en: {
+            question: "Countries with full marriage equality",
+            guessQuestion:
+                "What percentage of countries worldwide allow full marriage equality?",
+            explanation:
+                "Barely 18% of nations guarantee full marriage equality, showing that legal parity for the LGBTQ+ community remains a global minority",
+            source: "Laws on Us",
+        },
+        es: {
+            question: "Países con matrimonio igualitario pleno",
+            guessQuestion:
+                "¿Qué porcentaje de países en el mundo permite el matrimonio igualitario pleno?",
+            explanation:
+                "Apenas el 18% de los países garantiza la plena igualdad matrimonial, lo que demuestra que la igualdad jurídica para la comunidad LGBTQ+ sigue siendo una minoría a nivel mundial",
+            source: "Laws on Us",
+        },
+    },
+    {
+        id: "step_20",
+        percentage: 16,
+        category: "human rights",
+        sourceUrl: "https://www.unesco.org/gem-report/en",
+        en: {
+            question: "Children and youth out of school",
+            guessQuestion:
+                "What percentage of children and youth worldwide are excluded from the education system?",
+            explanation:
+                "About 273 million children and youth (1 in 6) are out of school. The figure has been rising in recent years after decades of decline",
+            source: "Global Education Monitoring Report 2026 | UNESCO",
+        },
+        es: {
+            question: "Niños y jóvenes fuera del sistema escolar",
+            guessQuestion:
+                "¿Qué porcentaje de niños y jóvenes en el mundo está excluido del sistema educativo?",
+            explanation:
+                "Unos 273 millones de niños y jóvenes (1 de cada 6) están fuera de la escuela. La cifra ha ido en aumento durante los últimos años tras decades de descenso",
+            source: "Informe de Seguimiento de la Educación en el Mundo 2026 | UNESCO",
         },
     },
 ];
