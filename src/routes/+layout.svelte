@@ -60,9 +60,18 @@
             : "/es" + ($page.url.pathname === "/" ? "" : $page.url.pathname),
     );
     let finalEsPath = $derived(baseEsPath === "/es/" ? "/es" : baseEsPath);
+
+    let currentPath = $derived(
+        $page.url.pathname === "/" || $page.url.pathname === "/es/"
+            ? $page.url.pathname.slice(0, -1)
+            : $page.url.pathname.endsWith("/")
+              ? $page.url.pathname.slice(0, -1)
+              : $page.url.pathname,
+    );
 </script>
 
 <svelte:head>
+    <link rel="canonical" href="https://theworldinpercentages.com{currentPath || '/'}" />
     <link
         rel="alternate"
         hreflang="x-default"

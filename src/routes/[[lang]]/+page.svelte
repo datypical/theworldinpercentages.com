@@ -3,9 +3,9 @@
     import { i18n } from "$lib/i18n/i18n.svelte";
 
     const baseUrl = "https://theworldinpercentages.com";
-    $: canonicalUrl = baseUrl + (i18n.language === "es" ? "/es" : "");
+    let canonicalUrl = $derived(baseUrl + (i18n.language === "es" ? "/es" : ""));
 
-    $: jsonLd = {
+    let jsonLd = $derived({
         "@context": "https://schema.org",
         "@type": "WebPage",
         name: i18n.t.seo.title,
@@ -27,13 +27,12 @@
             "@type": "Organization",
             name: "Datypical Studio",
         },
-    };
+    });
 </script>
 
 <svelte:head>
     <title>{i18n.t.seo.title}</title>
     <meta name="description" content={i18n.t.seo.description} />
-    <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
