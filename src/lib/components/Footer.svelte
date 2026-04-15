@@ -1,6 +1,7 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
     import { i18n } from "$lib/i18n/i18n.svelte";
+    import { trackEvent } from "$lib/helpers/analytics";
 
     let showModal = false;
     let isSuccess = false;
@@ -64,6 +65,7 @@
                     return async ({ result, update }) => {
                         if (result.type === "success") {
                             isSuccess = true;
+                            trackEvent("form submitted");
                         }
                         update({ reset: true });
                     };

@@ -7,6 +7,7 @@
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
     import { i18n } from "$lib/i18n/i18n.svelte";
+    import { trackEvent } from "$lib/helpers/analytics";
 
     let theme = $state("dark");
 
@@ -170,6 +171,7 @@
         class="lang-select"
         value={i18n.language}
         onchange={(e) => {
+            trackEvent("language changed");
             const target = e.target as HTMLSelectElement;
             const newLang = target.value;
             let currentPath = $page.url.pathname;

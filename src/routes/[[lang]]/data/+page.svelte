@@ -1,5 +1,18 @@
 <script lang="ts">
     import { i18n } from "$lib/i18n/i18n.svelte";
+    import { onMount } from "svelte";
+    import { trackEvent } from "$lib/helpers/analytics";
+
+    onMount(() => {
+        trackEvent("visited data");
+    });
+
+    function handleContactClick(e: MouseEvent) {
+        const target = e.target as HTMLElement;
+        if (target.tagName === "A" && target.getAttribute("href")?.includes("github")) {
+            trackEvent("clicked repository");
+        }
+    }
 </script>
 
 <svelte:head>
@@ -67,7 +80,7 @@
 
         <section class="log-section">
             <h2>{i18n.t.methodology.contactTitle}</h2>
-            <p>
+            <p on:click={handleContactClick}>
                 {@html i18n.t.methodology.contactText}
             </p>
         </section>

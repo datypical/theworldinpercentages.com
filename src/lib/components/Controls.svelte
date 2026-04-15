@@ -3,6 +3,7 @@
     import type { DisplayMode } from "$lib/types/data";
     import ScrollProgress from "./ScrollProgress.svelte";
     import { CATEGORIES } from "$lib/data/Categories";
+    import { trackEvent } from "$lib/helpers/analytics";
 
     export let selectedCategory: string;
     export let displayMode: DisplayMode;
@@ -11,7 +12,11 @@
 <div class="view-picker">
     <div class="control-group category-control">
         <label for="category-mode">{i18n.t.controls.category || "Category"}</label>
-        <select id="category-mode" bind:value={selectedCategory}>
+        <select
+            id="category-mode"
+            bind:value={selectedCategory}
+            on:change={() => trackEvent("changed category")}
+        >
             <option value="all">{i18n.t.controls.catAll || "All"}</option>
             {#each CATEGORIES as category (category.id)}
                 <option value={category.id}
@@ -27,7 +32,10 @@
             <button
                 class="icon-toggle-btn"
                 class:active={displayMode === "shape"}
-                on:click={() => (displayMode = "shape")}
+                on:click={() => {
+                    displayMode = "shape";
+                    trackEvent("changed display type");
+                }}
                 title={i18n.t.controls.typeShape}
                 aria-label={i18n.t.controls.typeShape}
             >
@@ -50,7 +58,10 @@
             <button
                 class="icon-toggle-btn"
                 class:active={displayMode === "waffle"}
-                on:click={() => (displayMode = "waffle")}
+                on:click={() => {
+                    displayMode = "waffle";
+                    trackEvent("changed display type");
+                }}
                 title={i18n.t.controls.typeWaffle}
                 aria-label={i18n.t.controls.typeWaffle}
             >

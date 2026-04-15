@@ -2,6 +2,7 @@
     import { STEPS, STEP_COLORS } from "$lib/data/Steps";
     import { i18n } from "$lib/i18n/i18n.svelte";
     import Guess from "$lib/components/Guess.svelte";
+    import { trackEvent } from "$lib/helpers/analytics";
 
     let currentIndex = 0;
     let userGuess: number | null = null;
@@ -12,8 +13,8 @@
 
     import { onMount } from "svelte";
     onMount(() => {
+        trackEvent("visited guess");
         steps.sort(() => Math.random() - 0.5);
-        // Force reactivity update
         steps = steps;
     });
 
@@ -27,6 +28,7 @@
             hasGuessed = false;
         } else {
             isFinished = true;
+            trackEvent("finished guess game");
         }
     }
 
