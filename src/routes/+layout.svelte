@@ -72,7 +72,7 @@
 </script>
 
 <svelte:head>
-    <link rel="canonical" href="https://theworldinpercentages.com{currentPath || '/'}" />
+    <link rel="canonical" href="https://theworldinpercentages.com{currentPath}" />
     <link
         rel="alternate"
         hreflang="x-default"

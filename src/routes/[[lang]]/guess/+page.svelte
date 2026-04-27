@@ -4,22 +4,24 @@
     import Guess from "$lib/components/Guess.svelte";
     import { trackEvent } from "$lib/helpers/analytics";
 
-    let currentIndex = 0;
-    let userGuess: number | null = null;
-    let hasGuessed = false;
-    let isFinished = false;
+    const baseUrl = "https://theworldinpercentages.com";
+    let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/guess" : "/guess"));
 
-    let steps = [...STEPS];
+    let currentIndex = $state(0);
+    let userGuess = $state<number | null>(null);
+    let hasGuessed = $state(false);
+    let isFinished = $state(false);
+
+    let steps = $state([...STEPS]);
 
     import { onMount } from "svelte";
     onMount(() => {
         trackEvent("visited guess");
-        steps.sort(() => Math.random() - 0.5);
-        steps = steps;
+        steps = [...steps].sort(() => Math.random() - 0.5);
     });
 
-    $: activeStep = steps[currentIndex];
-    $: activeColor = STEP_COLORS[currentIndex % STEP_COLORS.length].color;
+    let activeStep = $derived(steps[currentIndex]);
+    let activeColor = $derived(STEP_COLORS[currentIndex % STEP_COLORS.length].color);
 
     function nextQuestion() {
         if (currentIndex < steps.length - 1) {
@@ -37,13 +39,28 @@
         currentIndex = 0;
         userGuess = null;
         hasGuessed = false;
-        steps.sort(() => Math.random() - 0.5);
-        steps = steps;
+        steps = [...steps].sort(() => Math.random() - 0.5);
     }
 </script>
 
 <svelte:head>
     <title>{i18n.t.guess.title} - {i18n.t.home.title}</title>
+    <meta name="description" content={i18n.t.guess.seoDescription} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={`${i18n.t.guess.title} - ${i18n.t.home.title}`} />
+    <meta property="og:description" content={i18n.t.guess.seoDescription} />
+    <meta property="og:image" content={`${baseUrl}/og-image.png`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={pageUrl} />
+    <meta
+        property="twitter:title"
+        content={`${i18n.t.guess.title} - ${i18n.t.home.title}`}
+    />
+    <meta property="twitter:description" content={i18n.t.guess.seoDescription} />
+    <meta property="twitter:image" content={`${baseUrl}/og-image.png`} />
 </svelte:head>
 
 <div class="guess-page">

@@ -47,6 +47,7 @@ export const translations = {
         },
         guess: {
             title: "Guess the percentage",
+            seoDescription: "Guess global percentages through an interactive quiz",
             subtitle:
                 "Test your instincts with the same facts from the main page. How accurate is your intuition?",
             backToHome: "Back to home",
@@ -154,6 +155,7 @@ export const translations = {
         },
         guess: {
             title: "Adivina el porcentaje",
+            seoDescription: "Adivina porcentajes globales en un juego interactivo basado",
             subtitle:
                 "Pon a prueba tu instinto con los mismos datos de la página principal. ¿Qué tan certera es tu intuición?",
             backToHome: "Volver al inicio",

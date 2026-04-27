@@ -3,6 +3,9 @@
     import { onMount } from "svelte";
     import { trackEvent } from "$lib/helpers/analytics";
 
+    const baseUrl = "https://theworldinpercentages.com";
+    let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/data" : "/data"));
+
     onMount(() => {
         trackEvent("visited data");
     });
@@ -18,6 +21,18 @@
 <svelte:head>
     <title>{i18n.t.methodology.seoTitle}</title>
     <meta name="description" content={i18n.t.methodology.seoDescription} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={i18n.t.methodology.seoTitle} />
+    <meta property="og:description" content={i18n.t.methodology.seoDescription} />
+    <meta property="og:image" content={`${baseUrl}/og-image.png`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={pageUrl} />
+    <meta property="twitter:title" content={i18n.t.methodology.seoTitle} />
+    <meta property="twitter:description" content={i18n.t.methodology.seoDescription} />
+    <meta property="twitter:image" content={`${baseUrl}/og-image.png`} />
 </svelte:head>
 
 <div class="data-log-container">
