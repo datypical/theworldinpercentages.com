@@ -39,7 +39,7 @@
         currentStep === filteredSteps.length - 1
     ) {
         viewTracked = true;
-        trackEvent("Finished Scroll");
+        trackEvent("finished scroll");
     }
 </script>
 
