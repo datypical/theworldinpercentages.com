@@ -6,10 +6,12 @@
     import { STEPS, STEP_COLORS } from "$lib/data/Steps";
     import { i18n } from "$lib/i18n/i18n.svelte";
     import type { DisplayMode } from "$lib/types/data";
+    import { trackEvent } from "$lib/helpers/analytics";
 
     let currentStep = -1;
     let displayMode: DisplayMode = "shape";
     let selectedCategory = "all";
+    let viewTracked = false;
 
     $: filteredSteps = STEPS.map((step, originalIndex) => ({
         step,
@@ -29,6 +31,15 @@
     $: if (selectedCategory !== prevCategory) {
         prevCategory = selectedCategory;
         currentStep = 0;
+    }
+
+    $: if (
+        !viewTracked &&
+        filteredSteps.length > 0 &&
+        currentStep === filteredSteps.length - 1
+    ) {
+        viewTracked = true;
+        trackEvent("Finished Scroll");
     }
 </script>
 
