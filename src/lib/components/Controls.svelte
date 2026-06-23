@@ -1,7 +1,6 @@
 <script lang="ts">
     import { i18n } from "$lib/i18n/i18n.svelte";
     import type { DisplayMode } from "$lib/types/data";
-    import ScrollProgress from "./ScrollProgress.svelte";
     import { CATEGORIES } from "$lib/data/Categories";
     import { trackEvent } from "$lib/helpers/analytics";
 
@@ -85,8 +84,6 @@
         </div>
     </div>
 </div>
-
-<ScrollProgress />
 
 <style>
     .view-picker {
