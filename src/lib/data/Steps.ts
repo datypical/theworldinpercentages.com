@@ -232,24 +232,24 @@ export const STEPS: Step[] = [
     },
     {
         id: "step_11",
-        percentage: 15,
+        percentage: 16,
         category: "politics",
-        sourceUrl: "https://www.eiu.com/n/campaigns/democracy-index-2024/",
+        sourceUrl: "https://www.eiu.com/n/campaigns/democracy-index-2025/",
         en: {
             question: "Countries considered full democracies",
             guessQuestion:
                 "What percentage of countries in the world are considered full democracies?",
             explanation:
-                "Only 15% of countries (25 nations) are full democracies. Meanwhile, the global democratic index continues its decline, driven by reversals in several regions and the hardening of authoritarian regimes",
-            source: "Democracy Index 2024 | EIU",
+                "Only 16% of countries (26 nations) are full democracies. Meanwhile, the global democratic index has stabilized after eight years of decline, indicating a pause in the global democratic recession",
+            source: "Democracy Index 2025 | EIU",
         },
         es: {
             question: "Países considerados democracias plenas",
             guessQuestion:
                 "¿Qué porcentaje de los países del mundo se consideran democracias plenas?",
             explanation:
-                "Solo el 15% de los países (25 naciones) son democracias plenas. Mientras tanto, el índice global sigue cayendo, impulsado por retrocesos en varias regiones y el endurecimiento de regímenes autoritarios",
-            source: "Índice de Democracia 2024 | EIU",
+                "Solo el 16% de los países (26 naciones) son democracias plenas. Mientras tanto, el índice global se ha estabilizado tras ocho años de descenso, lo que indica una pausa en la recesión democrática mundial",
+            source: "Índice de Democracia 2025 | EIU",
         },
     },
     {
