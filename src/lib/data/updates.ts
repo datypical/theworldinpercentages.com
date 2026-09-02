@@ -15,6 +15,26 @@ import type { UpdateLog } from "$lib/types/data";
 export const updates: Record<"en" | "es", UpdateLog[]> = {
     en: [
         {
+            version: "v1.2.0",
+            date: "September 2026",
+            title: "Annual data updates for global reports",
+            changes: [
+                {
+                    label: "Changed",
+                    items: [
+                        {
+                            text: "Global facts updated with their latest annual reports, including adjustments to percentages and explanations:",
+                            subItems: [
+                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a> (Democracy Index 2025)",
+                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population with access to electricity</a> (Energy Progress Report 2026)",
+                                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living in extreme poverty</a> (The Sustainable Development Goals Report 2026)",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
             version: "v1.1.0",
             date: "April 2026",
             title: "'Guess' mode, new data and user interface update",
@@ -95,6 +115,26 @@ export const updates: Record<"en" | "es", UpdateLog[]> = {
         },
     ],
     es: [
+        {
+            version: "v1.2.0",
+            date: "Septiembre 2026",
+            title: "Actualización anual de datos globales",
+            changes: [
+                {
+                    label: "Cambiado",
+                    items: [
+                        {
+                            text: "Actualización de los siguientes datos globales según sus reportes anuales más recientes, con ajustes en porcentajes y explicaciones:",
+                            subItems: [
+                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a> (Democracy Index 2025)",
+                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con acceso a electricidad</a> (Energy Progress Report 2026)",
+                                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población viviendo en pobreza extrema</a> (The Sustainable Development Goals Report 2026)",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
         {
             version: "v1.1.0",
             date: "Abril 2026",
