@@ -57,22 +57,22 @@ export const STEPS: Step[] = [
         id: "step_3",
         percentage: 10,
         category: "economy",
-        sourceUrl: "https://unstats.un.org/sdgs/report/2025/",
+        sourceUrl: "https://unstats.un.org/sdgs/report/2026/",
         en: {
             question: "Population living in extreme poverty",
             guessQuestion:
                 "What percentage of the world population lives in extreme poverty?",
             explanation:
-                "Affects 1 in 10 people (808 million). Eradicating it by 2030 is currently a highly unlikely goal",
-            source: "The Sustainable Development Goals Report 2025 | United Nations",
+                "Affects 1 in 10 people (826 million). Eradicating it by 2030 is currently a highly unlikely goal",
+            source: "The Sustainable Development Goals Report 2026 | United Nations",
         },
         es: {
             question: "Población en situación de pobreza extrema",
             guessQuestion:
                 "¿Qué porcentaje de la población mundial vive en pobreza extrema?",
             explanation:
-                "Afecta a 1 de cada 10 personas (808 millones). Erradicarla para 2030 es un objetivo muy improbable",
-            source: "Informe sobre los Objetivos de Desarrollo Sostenible 2025 | Naciones Unidas",
+                "Afecta a 1 de cada 10 personas (826 millones). Erradicarla para 2030 es un objetivo muy improbable",
+            source: "Informe sobre los Objetivos de Desarrollo Sostenible 2026 | Naciones Unidas",
         },
     },
     {
