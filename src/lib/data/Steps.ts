@@ -100,25 +100,25 @@ export const STEPS: Step[] = [
     },
     {
         id: "step_5",
-        percentage: 93,
+        percentage: 92,
         category: "human rights",
         sourceUrl:
-            "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025",
+            "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026",
         en: {
             question: "Global population with access to electricity",
             guessQuestion:
                 "What percentage of the world population has access to electricity?",
             explanation:
-                "93% of the world has electricity. However, 666 million people—mostly in Africa—still live in the dark",
-            source: "Energy Progress Report 2025 | IEA, IRENA, UNSD, the World Bank, and WHO",
+                "92% of the world has electricity. However, 655 million people—mostly in Sub-Saharan Africa—still live in the dark",
+            source: "Energy Progress Report 2026 | IEA, IRENA, UNSD, the World Bank, and WHO",
         },
         es: {
             question: "Población mundial con acceso a electricidad",
             guessQuestion:
                 "¿Qué porcentaje de la población mundial tiene acceso a electricidad?",
             explanation:
-                "El 93% del mundo tiene luz. Sin embargo, 666 millones de personas siguen a oscuras",
-            source: "Informe de Progreso Energético 2025 | AIE, IRENA, DEES, Banco Mundial y OMS",
+                "El 92% del mundo tiene luz. Sin embargo, 655 millones de personas —la mayoría en el África subsahariana— siguen a oscuras",
+            source: "Informe de Progreso Energético 2026 | AIE, IRENA, DEES, Banco Mundial y OMS",
         },
     },
     {
