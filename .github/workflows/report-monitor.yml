@@ -30,6 +30,9 @@ jobs:
             - name: Remove previous output
               run: rm -f updates-found.md
 
+            - name: Install Playwright Chromium
+              run: pnpm exec playwright install --with-deps chromium
+
             - name: Check for report updates
               run: pnpm check:reports
 
