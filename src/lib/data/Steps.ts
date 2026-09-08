@@ -36,6 +36,13 @@ export const STEPS: Step[] = [
         category: "environment",
         sourceUrl:
             "https://ember-energy.org/latest-insights/global-electricity-review-2025/",
+        monitor: {
+            name: "Global Electricity Review",
+            checkType: "url_increment",
+            baseUrl:
+                "https://ember-energy.org/latest-insights/global-electricity-review-{year}/",
+            latestPublishedYear: 2025,
+        },
         en: {
             question: "Global electricity from renewable sources",
             guessQuestion:
