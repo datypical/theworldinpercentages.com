@@ -1,6 +1,7 @@
 {
     "name": "the-world-in-percentages",
     "private": true,
+    "packageManager": "pnpm@11.21.0",
     "version": "1.2.0",
     "type": "module",
     "scripts": {

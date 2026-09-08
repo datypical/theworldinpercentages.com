@@ -19,7 +19,7 @@ jobs:
 
             - uses: actions/setup-node@v4
               with:
-                  node-version: "20"
+                  node-version: "24"
                   cache: pnpm
 
             - name: Install dependencies
@@ -28,14 +28,14 @@ jobs:
                   HUSKY: 0
 
             - name: Remove previous output
-              run: rm -f updates_found.md
+              run: rm -f updates-found.md
 
             - name: Check for report updates
               run: pnpm check:reports
 
             - name: Create issue from file
-              if: hashFiles('updates_found.md') != ''
+              if: hashFiles('updates-found.md') != ''
               uses: peter-evans/create-issue-from-file@v5
               with:
                   title: "New report editions detected"
-                  content-filepath: ./updates_found.md
+                  content-filepath: ./updates-found.md
