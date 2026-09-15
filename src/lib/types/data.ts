@@ -5,14 +5,36 @@ export interface LocalizedText {
     guessQuestion?: string;
 }
 
-export type MonitorCheckType = "url_increment" | "page_content";
+export type MonitorCheckType = "url_increment" | "page_year" | "manual";
 
-export interface MonitorConfig {
+interface BaseMonitorConfig {
     name: string;
-    checkType: MonitorCheckType;
-    baseUrl: string;
     latestPublishedYear: number;
 }
+
+export interface UrlIncrementMonitorConfig extends BaseMonitorConfig {
+    checkType: "url_increment";
+    baseUrl: string;
+}
+
+export interface PageYearMonitorConfig extends BaseMonitorConfig {
+    checkType: "page_year";
+    url: string;
+    yearPattern: string;
+    yearPatternFlags?: string;
+}
+
+export interface ManualMonitorConfig {
+    checkType: "manual";
+    name: string;
+    url: string;
+    current?: string;
+}
+
+export type MonitorConfig =
+    | UrlIncrementMonitorConfig
+    | PageYearMonitorConfig
+    | ManualMonitorConfig;
 
 export interface Step {
     id: string;

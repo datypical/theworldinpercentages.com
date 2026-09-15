@@ -1,5 +1,22 @@
 import type { Step } from "$lib/types/data";
 
+export function getSourceUrl(step: Step): string | undefined {
+    if (step.sourceUrl) {
+        return step.sourceUrl;
+    }
+
+    const monitor = step.monitor;
+    if (!monitor) {
+        return undefined;
+    }
+
+    if (monitor.checkType === "url_increment") {
+        return monitor.baseUrl.replace("{year}", String(monitor.latestPublishedYear));
+    }
+
+    return monitor.url;
+}
+
 export const STEP_COLORS = [
     { color: "#1DA1F2", emptyColor: "var(--empty-fill)" },
     { color: "#ea90d7", emptyColor: "var(--empty-fill)" },
@@ -12,7 +29,12 @@ export const STEPS: Step[] = [
         id: "step_1",
         percentage: 74,
         category: "human rights",
-        sourceUrl: "https://washdata.org/reports/jmp-2025-wash-households",
+        monitor: {
+            name: "JMP 2025",
+            checkType: "url_increment",
+            baseUrl: "https://washdata.org/reports/jmp-{year}-wash-households/",
+            latestPublishedYear: 2025,
+        },
         en: {
             question: "Population with access to safe drinking water",
             guessQuestion:
@@ -34,8 +56,6 @@ export const STEPS: Step[] = [
         id: "step_2",
         percentage: 32,
         category: "environment",
-        sourceUrl:
-            "https://ember-energy.org/latest-insights/global-electricity-review-2025/",
         monitor: {
             name: "Global Electricity Review",
             checkType: "url_increment",
@@ -64,7 +84,12 @@ export const STEPS: Step[] = [
         id: "step_3",
         percentage: 10,
         category: "economy",
-        sourceUrl: "https://unstats.un.org/sdgs/report/2026/",
+        monitor: {
+            name: "The Sustainable Development Goals Report 2026",
+            checkType: "url_increment",
+            baseUrl: "https://unstats.un.org/sdgs/report/{year}/",
+            latestPublishedYear: 2026,
+        },
         en: {
             question: "Population living in extreme poverty",
             guessQuestion:
@@ -86,8 +111,15 @@ export const STEPS: Step[] = [
         id: "step_4",
         percentage: 8,
         category: "human rights",
-        sourceUrl:
-            "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
+        monitor: {
+            name: "The State of Food Security and Nutrition in the World 2025",
+            checkType: "page_year",
+            url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
+            yearPattern:
+                "(?:sofi|state of food security and nutrition in the world)\\s*[-–—:]*\\s*(20\\d{2})",
+            yearPatternFlags: "i",
+            latestPublishedYear: 2025,
+        },
         en: {
             question: "Global population facing chronic hunger",
             guessQuestion:
@@ -109,8 +141,13 @@ export const STEPS: Step[] = [
         id: "step_5",
         percentage: 92,
         category: "human rights",
-        sourceUrl:
-            "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026",
+        monitor: {
+            name: "Tracking SDG7: The Energy Progress Report 2026",
+            checkType: "url_increment",
+            baseUrl:
+                "https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-{year}",
+            latestPublishedYear: 2026,
+        },
         en: {
             question: "Global population with access to electricity",
             guessQuestion:
@@ -132,7 +169,11 @@ export const STEPS: Step[] = [
         id: "step_6",
         percentage: 10,
         category: "environment",
-        sourceUrl: "https://nsidc.org/data/explore-data",
+        monitor: {
+            name: "NSIDC Cryosphere Data",
+            checkType: "manual",
+            url: "https://nsidc.org/data/explore-data",
+        },
         en: {
             question: "Land area covered by ice",
             guessQuestion:
@@ -154,7 +195,12 @@ export const STEPS: Step[] = [
         id: "step_7",
         percentage: 28,
         category: "environment",
-        sourceUrl: "https://www.iucnredlist.org/",
+        monitor: {
+            name: "IUCN Red List of Threatened Species",
+            checkType: "manual",
+            url: "https://www.iucnredlist.org/",
+            current: "2025-2",
+        },
         en: {
             question: "Species threatened with extinction",
             guessQuestion:
@@ -176,7 +222,12 @@ export const STEPS: Step[] = [
         id: "step_8",
         percentage: 20,
         category: "health",
-        sourceUrl: "https://www.who.int/publications/i/item/9789240116276",
+        monitor: {
+            name: "Global report on trends in prevalence of tobacco use",
+            checkType: "manual",
+            url: "https://www.who.int/publications/i/item/9789240116276",
+            current: "2025",
+        },
         en: {
             question: "Adults who consume tobacco",
             guessQuestion: "What percentage of adults worldwide consume tobacco?",
@@ -195,8 +246,14 @@ export const STEPS: Step[] = [
         id: "step_9",
         percentage: 4,
         category: "society",
-        sourceUrl:
-            "https://www.un.org/development/desa/pd/content/international-migrant-stock",
+        monitor: {
+            name: "International Migrant Stock 2024",
+            checkType: "page_year",
+            url: "https://www.un.org/development/desa/pd/content/international-migrant-stock",
+            yearPattern: "international migrant stock\\s+(20\\d{2})",
+            yearPatternFlags: "i",
+            latestPublishedYear: 2024,
+        },
         en: {
             question: "International migrant population",
             guessQuestion:
@@ -218,8 +275,15 @@ export const STEPS: Step[] = [
         id: "step_10",
         percentage: 31,
         category: "environment",
-        sourceUrl:
-            "https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en",
+        monitor: {
+            name: "The State of the World's Forests 2024",
+            checkType: "page_year",
+            url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en",
+            yearPattern:
+                "(?:sofo|state of the world['’]?s forests)\\s*[-–—:]*\\s*(20\\d{2})",
+            yearPatternFlags: "i",
+            latestPublishedYear: 2024,
+        },
         en: {
             question: "Land area covered by forests",
             guessQuestion:
@@ -241,7 +305,12 @@ export const STEPS: Step[] = [
         id: "step_11",
         percentage: 16,
         category: "politics",
-        sourceUrl: "https://www.eiu.com/n/campaigns/democracy-index-2025/",
+        monitor: {
+            name: "Democracy Index 2025",
+            checkType: "url_increment",
+            baseUrl: "https://www.eiu.com/n/campaigns/democracy-index-{year}/",
+            latestPublishedYear: 2025,
+        },
         en: {
             question: "Countries considered full democracies",
             guessQuestion:
@@ -263,7 +332,12 @@ export const STEPS: Step[] = [
         id: "step_12",
         percentage: 10,
         category: "economy",
-        sourceUrl: "https://wir2026.wid.world/",
+        monitor: {
+            name: "World Inequality Report 2026",
+            checkType: "manual",
+            url: "https://wir2026.wid.world/",
+            current: "2026",
+        },
         en: {
             question: "Population owning 75% of global wealth",
             guessQuestion:
@@ -285,8 +359,12 @@ export const STEPS: Step[] = [
         id: "step_13",
         percentage: 24,
         category: "society",
-        sourceUrl:
-            "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/",
+        monitor: {
+            name: "How the Global Religious Landscape Changed From 2010 to 2020",
+            checkType: "manual",
+            url: "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/",
+            current: "2025",
+        },
         en: {
             question: "Population with no religious affiliation",
             guessQuestion:
@@ -308,8 +386,12 @@ export const STEPS: Step[] = [
         id: "step_14",
         percentage: 8,
         category: "human rights",
-        sourceUrl:
-            "https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward",
+        monitor: {
+            name: "Child Labour: Global estimates 2024",
+            checkType: "manual",
+            url: "https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward",
+            current: "2024",
+        },
         en: {
             question: "Children engaged in child labour",
             guessQuestion:
@@ -331,8 +413,13 @@ export const STEPS: Step[] = [
         id: "step_15",
         percentage: 45,
         category: "society",
-        sourceUrl:
-            "https://www.un.org/development/desa/pd/world-urbanization-prospects-2025",
+        monitor: {
+            name: "World Urbanization Prospects 2025",
+            checkType: "url_increment",
+            baseUrl:
+                "https://www.un.org/development/desa/pd/world-urbanization-prospects-{year}",
+            latestPublishedYear: 2025,
+        },
         en: {
             question: "Global population living in cities",
             guessQuestion: "What percentage of the global population lives in cities?",
@@ -352,7 +439,12 @@ export const STEPS: Step[] = [
         id: "step_16",
         percentage: 88,
         category: "education",
-        sourceUrl: "https://www.unesco.org/en/days/literacy",
+        monitor: {
+            name: "International Literacy Day 2025",
+            checkType: "manual",
+            url: "https://www.unesco.org/en/days/literacy",
+            current: "2025",
+        },
         en: {
             question: "Global adult literacy rate",
             guessQuestion:
@@ -374,7 +466,12 @@ export const STEPS: Step[] = [
         id: "step_17",
         percentage: 14,
         category: "health",
-        sourceUrl: "https://www.who.int/publications/i/item/9789240113817",
+        monitor: {
+            name: "World Mental Health Report 2025",
+            checkType: "manual",
+            url: "https://www.who.int/publications/i/item/9789240113817",
+            current: "2025",
+        },
         en: {
             question: "Population living with a mental disorder",
             guessQuestion:
@@ -396,7 +493,12 @@ export const STEPS: Step[] = [
         id: "step_18",
         percentage: 30,
         category: "human rights",
-        sourceUrl: "https://www.who.int/publications/i/item/9789240116962",
+        monitor: {
+            name: "Violence against women prevalence estimates 2023",
+            checkType: "manual",
+            url: "https://www.who.int/publications/i/item/9789240116962",
+            current: "2023",
+        },
         en: {
             question: "Women who have experienced violence",
             guessQuestion:
@@ -418,7 +520,14 @@ export const STEPS: Step[] = [
         id: "step_19",
         percentage: 18,
         category: "politics",
-        sourceUrl: "https://ilga.org/laws-on-us-report/",
+        monitor: {
+            name: "Laws on Us 2024",
+            checkType: "page_year",
+            url: "https://ilga.org/laws-on-us-report/",
+            yearPattern: "laws on us[\\s\\S]{0,240}?(20\\d{2})",
+            yearPatternFlags: "i",
+            latestPublishedYear: 2024,
+        },
         en: {
             question: "Countries with full marriage equality",
             guessQuestion:
@@ -441,6 +550,12 @@ export const STEPS: Step[] = [
         percentage: 16,
         category: "human rights",
         sourceUrl: "https://www.unesco.org/gem-report/en",
+        monitor: {
+            name: "Global Education Monitoring Report 2026",
+            checkType: "url_increment",
+            baseUrl: "https://www.unesco.org/reports/gem-report/en/{year}",
+            latestPublishedYear: 2026,
+        },
         en: {
             question: "Children and youth out of school",
             guessQuestion:

@@ -3,7 +3,7 @@
     import Controls from "./Controls.svelte";
     import Chart from "./Chart.svelte";
     import Footer from "./Footer.svelte";
-    import { STEPS, STEP_COLORS } from "$lib/data/Steps";
+    import { STEPS, STEP_COLORS, getSourceUrl } from "$lib/data/Steps";
     import { i18n } from "$lib/i18n/i18n.svelte";
     import type { DisplayMode } from "$lib/types/data";
     import { trackEvent } from "$lib/helpers/analytics";
@@ -55,16 +55,18 @@
     <div class="steps">
         <Scrolly bind:value={currentStep}>
             {#each filteredSteps as item, i (item.originalIndex)}
+                {@const sourceUrl = getSourceUrl(item.step)}
                 <div class="step" class:active={currentStep === i}>
                     <div class="step-content">
                         <p>
                             {item.step[i18n.language]?.explanation ||
                                 i18n.t.common.notFound}
                         </p>
-                        {#if item.step.sourceUrl}
+                        {#if sourceUrl}
                             <p class="source">
+                                <!-- eslint-disable svelte/no-navigation-without-resolve -->
                                 <a
-                                    href={item.step.sourceUrl}
+                                    href={sourceUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -73,19 +75,7 @@
                                         : "Source: "}{item.step[i18n.language]?.source ||
                                         ""}
                                 </a>
-                            </p>
-                        {:else if item.step.sourceUrl}
-                            <p class="source">
-                                <a
-                                    href={item.step.sourceUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {i18n.language === "es"
-                                        ? "Fuente: "
-                                        : "Source: "}{item.step[i18n.language]?.source ||
-                                        ""}
-                                </a>
+                                <!-- eslint-enable svelte/no-navigation-without-resolve -->
                             </p>
                         {:else}
                             <p class="source">
