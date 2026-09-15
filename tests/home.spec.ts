@@ -57,11 +57,6 @@ test.describe("The World in Percentages - End to End", () => {
             );
             return cells.filter((c) => {
                 const fill = c.getAttribute("fill");
-                const emptyColor = document.documentElement.className.includes(
-                    "light-theme",
-                )
-                    ? "#e0e0e0"
-                    : "#2a2a2a";
                 return fill && fill !== "var(--empty-fill)" && fill !== "#e0e0e0";
             }).length;
         });
