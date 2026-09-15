@@ -3,8 +3,8 @@
     import { i18n } from "$lib/i18n/i18n.svelte";
     import { trackEvent } from "$lib/helpers/analytics";
 
-    let showModal = false;
-    let isSuccess = false;
+    let showModal = $state(false);
+    let isSuccess = $state(false);
 
     function openModal() {
         showModal = true;
@@ -26,7 +26,7 @@
             {i18n.t.end.message ||
                 "This visualization is constantly updated with new metrics."}
         </p>
-        <button on:click={openModal} class="btn-collaborate">
+        <button onclick={openModal} class="btn-collaborate">
             {i18n.t.end.linkText || "Contribute"}
         </button>
     </div>
@@ -37,8 +37,8 @@
         class="modal-backdrop"
         role="button"
         tabindex="0"
-        on:click={closeModal}
-        on:keydown={(e) => {
+        onclick={closeModal}
+        onkeydown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 closeModal();
@@ -50,8 +50,8 @@
             role="dialog"
             aria-modal="true"
             tabindex="-1"
-            on:click|stopPropagation
-            on:keydown={(e) => {
+            onclick={(e) => e.stopPropagation()}
+            onkeydown={(e) => {
                 // Prevent closing modal with enter/space on modal content itself
                 if (e.key === "Enter" || e.key === " ") {
                     e.stopPropagation();
@@ -76,7 +76,7 @@
                     <button
                         type="button"
                         class="close-btn"
-                        on:click={closeModal}
+                        onclick={closeModal}
                         aria-label="Close modal">×</button
                     >
                 </div>
@@ -106,7 +106,7 @@
                         <button
                             type="button"
                             class="btn-primary success-btn"
-                            on:click={closeModal}
+                            onclick={closeModal}
                         >
                             {i18n.t.end.modal?.close || "Close"}
                         </button>
@@ -171,7 +171,7 @@
                                 <button
                                     type="button"
                                     class="btn-secondary"
-                                    on:click={closeModal}
+                                    onclick={closeModal}
                                 >
                                     {i18n.t.end.modal?.cancel || "Cancel"}
                                 </button>

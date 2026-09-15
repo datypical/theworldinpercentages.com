@@ -70,14 +70,17 @@
                                     {#each change.items as item (typeof item === "string" ? item : item.text)}
                                         {#if typeof item === "string"}
                                             <li>
+                                                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                                                 {@html item}
                                             </li>
                                         {:else}
                                             <li>
+                                                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                                                 {@html item.text}
                                                 <ul class="sub-items">
                                                     {#each item.subItems as subItem (subItem)}
                                                         <li>
+                                                            <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                                                             {@html subItem}
                                                         </li>
                                                     {/each}
@@ -95,7 +98,10 @@
 
         <section class="log-section">
             <h2>{i18n.t.methodology.contactTitle}</h2>
-            <p on:click={handleContactClick}>
+            <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <p onclick={handleContactClick}>
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                 {@html i18n.t.methodology.contactText}
             </p>
         </section>
