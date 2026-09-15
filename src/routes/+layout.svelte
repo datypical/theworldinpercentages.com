@@ -5,7 +5,8 @@
 
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
-    import { page } from "$app/stores";
+    import { resolve } from "$app/paths";
+    import { page } from "$app/state";
     import { i18n } from "$lib/i18n/i18n.svelte";
     import { trackEvent } from "$lib/helpers/analytics";
 
@@ -41,33 +42,32 @@
     }
 
     let isHomePage = $derived(
-        $page.url.pathname === "/" ||
-            $page.url.pathname === "/es" ||
-            $page.url.pathname === "/es/",
+        page.url.pathname === "/" ||
+            page.url.pathname === "/es" ||
+            page.url.pathname === "/es/",
     );
-    let isDataPage = $derived($page.url.pathname.includes("/data"));
-    let isGuessPage = $derived($page.url.pathname.includes("/guess"));
+    let isDataPage = $derived(page.url.pathname.includes("/data"));
 
     let baseEnPath = $derived(
-        $page.url.pathname.startsWith("/es")
-            ? $page.url.pathname.substring(3)
-            : $page.url.pathname,
+        page.url.pathname.startsWith("/es")
+            ? page.url.pathname.substring(3)
+            : page.url.pathname,
     );
     let finalEnPath = $derived(baseEnPath === "/" ? "" : baseEnPath);
 
     let baseEsPath = $derived(
-        $page.url.pathname.startsWith("/es")
-            ? $page.url.pathname
-            : "/es" + ($page.url.pathname === "/" ? "" : $page.url.pathname),
+        page.url.pathname.startsWith("/es")
+            ? page.url.pathname
+            : "/es" + (page.url.pathname === "/" ? "" : page.url.pathname),
     );
     let finalEsPath = $derived(baseEsPath === "/es/" ? "/es" : baseEsPath);
 
     let currentPath = $derived(
-        $page.url.pathname === "/" || $page.url.pathname === "/es/"
-            ? $page.url.pathname.slice(0, -1)
-            : $page.url.pathname.endsWith("/")
-              ? $page.url.pathname.slice(0, -1)
-              : $page.url.pathname,
+        page.url.pathname === "/" || page.url.pathname === "/es/"
+            ? page.url.pathname.slice(0, -1)
+            : page.url.pathname.endsWith("/")
+              ? page.url.pathname.slice(0, -1)
+              : page.url.pathname,
     );
 </script>
 
@@ -93,7 +93,7 @@
 <div class="global-controls">
     {#if !isHomePage}
         <a
-            href={i18n.language === "es" ? "/es" : "/"}
+            href={resolve(i18n.language === "es" ? "/es" : "/")}
             class="nav-link special"
             data-sveltekit-preload-data="tap"
             title={i18n.t.error.backHome}
@@ -104,7 +104,7 @@
 
     {#if !isDataPage}
         <a
-            href="{i18n.language === 'es' ? '/es' : ''}/data"
+            href={resolve((i18n.language === "es" ? "/es" : "") + "/data")}
             class="nav-link"
             data-sveltekit-preload-data="tap"
             title={i18n.t.methodology.title}
@@ -174,18 +174,18 @@
             trackEvent("language changed");
             const target = e.target as HTMLSelectElement;
             const newLang = target.value;
-            let currentPath = $page.url.pathname;
+            let currentPath: string = page.url.pathname;
 
             if (currentPath.startsWith("/es/")) {
-                currentPath = currentPath.substring(3) as any;
+                currentPath = currentPath.substring(3);
             } else if (currentPath === "/es") {
-                currentPath = "/" as any;
+                currentPath = "/";
             }
 
             if (newLang === "en") {
-                goto(currentPath);
+                goto(resolve(currentPath));
             } else {
-                goto("/" + newLang + (currentPath === "/" ? "" : currentPath));
+                goto(resolve("/" + newLang + (currentPath === "/" ? "" : currentPath)));
             }
         }}
         aria-label="Change language"

@@ -16,15 +16,23 @@
     /**
      * The original version was adapted for this project
      */
-    import { onDestroy, onMount } from "svelte";
+    import { onDestroy, onMount, type Snippet } from "svelte";
 
-    export let root: Element | null = null;
-    export let top = 0;
-    export let bottom = 0;
-    export let increments: number | undefined = 100;
-    export let value: number | undefined = undefined;
-
-    increments = increments ?? 100;
+    let {
+        root = null,
+        top = 0,
+        bottom = 0,
+        increments = 100,
+        value = $bindable(),
+        children,
+    }: {
+        root?: Element | null;
+        top?: number;
+        bottom?: number;
+        increments?: number;
+        value?: number;
+        children?: Snippet;
+    } = $props();
 
     const steps: number[] = [];
     const threshold: number[] = [];
@@ -42,13 +50,11 @@
         nodes.forEach(createObserver);
     };
 
-    $: {
-        const _top = top;
-        const _bottom = bottom;
-        void _top;
-        void _bottom;
+    $effect(() => {
+        void top;
+        void bottom;
         update();
-    }
+    });
 
     const mostInView = () => {
         let maxRatio = 0;
@@ -148,5 +154,5 @@
 </script>
 
 <div bind:this={container}>
-    <slot />
+    {@render children?.()}
 </div>

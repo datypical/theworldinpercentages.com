@@ -1,6 +1,7 @@
 <script lang="ts">
     import { STEPS, STEP_COLORS } from "$lib/data/Steps";
     import { i18n } from "$lib/i18n/i18n.svelte";
+    import { resolve } from "$app/paths";
     import Guess from "$lib/components/Guess.svelte";
     import { trackEvent } from "$lib/helpers/analytics";
 
@@ -79,10 +80,13 @@
                 <h2>{i18n.t.guess.finishedTitle}</h2>
                 <p>{i18n.t.guess.finishedMessage}</p>
                 <div class="actions">
-                    <a href={i18n.language === "es" ? "/es" : "/"} class="next-btn">
+                    <a
+                        href={resolve(i18n.language === "es" ? "/es" : "/")}
+                        class="next-btn"
+                    >
                         {i18n.t.guess.exploreData}
                     </a>
-                    <button class="next-btn btn-secondary" on:click={resetGame}>
+                    <button class="next-btn btn-secondary" onclick={resetGame}>
                         {i18n.t.guess.playAgain}
                     </button>
                 </div>
@@ -97,7 +101,7 @@
                 bind:hasGuessed
             >
                 {#if hasGuessed}
-                    <button class="next-btn" on:click={nextQuestion}>
+                    <button class="next-btn" onclick={nextQuestion}>
                         {i18n.t.guess.nextQuestion}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

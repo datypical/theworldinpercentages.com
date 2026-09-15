@@ -12,11 +12,17 @@
         shapeScale,
     } from "$lib/data/chartLayout";
 
-    export let displayMode: DisplayMode;
-    export let activeStepWrap: { step: Step; originalIndex: number };
-    export let activeColors: { color: string; emptyColor?: string };
+    let {
+        displayMode,
+        activeStepWrap,
+        activeColors,
+    }: {
+        displayMode: DisplayMode;
+        activeStepWrap: { step: Step; originalIndex: number };
+        activeColors: { color: string; emptyColor?: string };
+    } = $props();
 
-    $: activeStep = activeStepWrap.step;
+    let activeStep = $derived(activeStepWrap.step);
 </script>
 
 <div class="chart-container">

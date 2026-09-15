@@ -4,8 +4,13 @@
     import { CATEGORIES } from "$lib/data/Categories";
     import { trackEvent } from "$lib/helpers/analytics";
 
-    export let selectedCategory: string;
-    export let displayMode: DisplayMode;
+    let {
+        selectedCategory = $bindable(),
+        displayMode = $bindable(),
+    }: {
+        selectedCategory: string;
+        displayMode: DisplayMode;
+    } = $props();
 </script>
 
 <div class="view-picker">
@@ -14,7 +19,7 @@
         <select
             id="category-mode"
             bind:value={selectedCategory}
-            on:change={() => trackEvent("changed category")}
+            onchange={() => trackEvent("changed category")}
         >
             <option value="all">{i18n.t.controls.catAll || "All"}</option>
             {#each CATEGORIES as category (category.id)}
@@ -31,7 +36,7 @@
             <button
                 class="icon-toggle-btn"
                 class:active={displayMode === "shape"}
-                on:click={() => {
+                onclick={() => {
                     displayMode = "shape";
                     trackEvent("changed display type");
                 }}
@@ -57,7 +62,7 @@
             <button
                 class="icon-toggle-btn"
                 class:active={displayMode === "waffle"}
-                on:click={() => {
+                onclick={() => {
                     displayMode = "waffle";
                     trackEvent("changed display type");
                 }}

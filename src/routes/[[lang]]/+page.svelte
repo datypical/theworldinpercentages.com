@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { resolve } from "$app/paths";
     import Viewer from "$lib/components/Viewer.svelte";
     import { i18n } from "$lib/i18n/i18n.svelte";
 
@@ -28,6 +29,10 @@
             name: "Datypical Studio",
         },
     });
+
+    let jsonLdHtml = $derived(
+        '<script type="application/ld+json">' + JSON.stringify(jsonLd) + "</scr" + "ipt>",
+    );
 </script>
 
 <svelte:head>
@@ -46,7 +51,8 @@
     <meta property="twitter:description" content={i18n.t.seo.description} />
     <meta property="twitter:image" content="{baseUrl}/og-image.png" />
 
-    {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+    {@html jsonLdHtml}
 </svelte:head>
 
 <main class="l-container">
@@ -70,7 +76,7 @@
             <p class="text-intro play-invite">
                 {i18n.t.home.guessInvite}
                 <a
-                    href={i18n.language === "es" ? "/es/guess" : "/guess"}
+                    href={resolve(i18n.language === "es" ? "/es/guess" : "/guess")}
                     class="guess-link"
                     data-sveltekit-preload-data="tap"
                 >

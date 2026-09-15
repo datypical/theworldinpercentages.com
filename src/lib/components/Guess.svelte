@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
     import { i18n } from "$lib/i18n/i18n.svelte";
+    import type { Snippet } from "svelte";
     import type { Step } from "$lib/types/data";
     import {
         items,
@@ -11,16 +11,27 @@
         cellSize,
     } from "$lib/data/chartLayout";
 
-    export let activeStep: Step;
-    export let activeColor: string;
-    export let userGuess: number | null = null;
-    export let hasGuessed: boolean = false;
-    export let currentIndex: number = 0;
-    export let totalSteps: number = 10;
+    let {
+        activeStep,
+        activeColor,
+        userGuess = $bindable(null),
+        hasGuessed = $bindable(false),
+        currentIndex = 0,
+        totalSteps = 10,
+        children,
+    }: {
+        activeStep: Step;
+        activeColor: string;
+        userGuess: number | null;
+        hasGuessed: boolean;
+        currentIndex: number;
+        totalSteps: number;
+        children?: Snippet;
+    } = $props();
 
-    let hoverIndex: number | null = null;
+    let hoverIndex = $state<number | null>(null);
 
-    $: trueCount = Math.round(activeStep.percentage);
+    let trueCount = $derived(Math.round(activeStep.percentage));
 
     function getFill(
         item: number,
@@ -67,13 +78,10 @@
         }
     }
 
-    const dispatch = createEventDispatcher();
-
     function handleInteraction(item: number) {
         if (hasGuessed) return;
         userGuess = item + 1;
         hasGuessed = true;
-        dispatch("guess", userGuess);
         hoverIndex = null;
     }
 </script>
@@ -144,7 +152,7 @@
                 {/if}
             </p>
             <div class="slot-actions">
-                <slot />
+                {@render children?.()}
             </div>
         {/if}
     </div>
@@ -154,7 +162,7 @@
         viewBox="0 0 {gridWidth} {gridHeight}"
         role="img"
         class:is-interactive={!hasGuessed}
-        on:mouseleave={() => !hasGuessed && (hoverIndex = null)}
+        onmouseleave={() => !hasGuessed && (hoverIndex = null)}
     >
         <g class="mobile-axis-labels">
             {#each [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] as pct (pct)}
@@ -184,9 +192,9 @@
                 role="button"
                 tabindex="0"
                 style="transform: translate({x}px, {y}px);"
-                on:mouseenter={() => !hasGuessed && (hoverIndex = item)}
-                on:click={() => handleInteraction(item)}
-                on:keydown={(e) => {
+                onmouseenter={() => !hasGuessed && (hoverIndex = item)}
+                onclick={() => handleInteraction(item)}
+                onkeydown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                         handleInteraction(item);
                         e.preventDefault();
