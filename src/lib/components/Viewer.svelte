@@ -8,39 +8,56 @@
     import type { DisplayMode } from "$lib/types/data";
     import { trackEvent } from "$lib/helpers/analytics";
 
-    let currentStep = -1;
-    let displayMode: DisplayMode = "shape";
-    let selectedCategory = "all";
-    let viewTracked = false;
+    let currentStep = $state(-1);
+    let displayMode = $state<DisplayMode>("shape");
+    let selectedCategory = $state("all");
+    let viewTracked = $state(false);
 
-    $: filteredSteps = STEPS.map((step, originalIndex) => ({
-        step,
-        originalIndex,
-    })).filter((s) => selectedCategory === "all" || s.step.category === selectedCategory);
+    let filteredSteps = $derived.by(() =>
+        STEPS.map((step, originalIndex) => ({
+            step,
+            originalIndex,
+        })).filter(
+            (s) => selectedCategory === "all" || s.step.category === selectedCategory,
+        ),
+    );
 
-    $: activeStepIndex = currentStep;
-    $: safeActiveIndex = Math.max(0, Math.min(activeStepIndex, filteredSteps.length - 1));
-    $: activeStepWrap =
+    let activeStepIndex = $derived(currentStep);
+    let safeActiveIndex = $derived(
+        Math.max(0, Math.min(activeStepIndex, filteredSteps.length - 1)),
+    );
+    let activeStepWrap = $derived(
         filteredSteps.length > 0
             ? filteredSteps[safeActiveIndex]
-            : { step: STEPS[0], originalIndex: 0 };
-    $: activeColors =
-        STEP_COLORS[Math.max(0, activeStepWrap.originalIndex) % STEP_COLORS.length];
+            : { step: STEPS[0], originalIndex: 0 },
+    );
+    let activeColors = $derived(
+        STEP_COLORS[Math.max(0, activeStepWrap.originalIndex) % STEP_COLORS.length],
+    );
 
-    let prevCategory = selectedCategory;
-    $: if (selectedCategory !== prevCategory) {
-        prevCategory = selectedCategory;
-        currentStep = 0;
-    }
+    let prevCategory: string | null = null;
+    $effect(() => {
+        const category = selectedCategory;
+        if (prevCategory === null) {
+            prevCategory = category;
+            return;
+        }
+        if (category !== prevCategory) {
+            prevCategory = category;
+            currentStep = 0;
+        }
+    });
 
-    $: if (
-        !viewTracked &&
-        filteredSteps.length > 0 &&
-        currentStep === filteredSteps.length - 1
-    ) {
-        viewTracked = true;
-        trackEvent("finished scroll");
-    }
+    $effect(() => {
+        if (
+            !viewTracked &&
+            filteredSteps.length > 0 &&
+            currentStep === filteredSteps.length - 1
+        ) {
+            viewTracked = true;
+            trackEvent("finished scroll");
+        }
+    });
 </script>
 
 <section class="l-section">
