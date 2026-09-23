@@ -1,43 +1,43 @@
 name: Report monitor
 
 on:
-    schedule:
-        - cron: "0 12 * * 2"
-    workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 2"
+  workflow_dispatch:
 
 permissions:
-    contents: read
-    issues: write
+  contents: read
+  issues: write
 
 jobs:
-    check-reports:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
+  check-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-            - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v4
 
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: "24"
-                  cache: pnpm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: pnpm
 
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
-              env:
-                  HUSKY: 0
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          HUSKY: 0
 
-            - name: Remove previous output
-              run: rm -f updates-found.md
+      - name: Remove previous output
+        run: rm -f updates-found.md
 
-            - name: Install Playwright Chromium
-              run: pnpm exec playwright install --with-deps chromium
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
 
-            - name: Check for report updates
-              run: pnpm check:reports
+      - name: Check for report updates
+        run: pnpm check:reports
 
-            - name: Create report issue
-              uses: peter-evans/create-issue-from-file@v5
-              with:
-                  title: "Report monitor"
-                  content-filepath: ./updates-found.md
+      - name: Create report issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Report monitor"
+          content-filepath: ./updates-found.md
