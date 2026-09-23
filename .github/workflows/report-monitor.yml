@@ -36,12 +36,8 @@ jobs:
             - name: Check for report updates
               run: pnpm check:reports
 
-            - name: Set report date
-              id: date
-              run: echo "value=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
-
             - name: Create report issue
               uses: peter-evans/create-issue-from-file@v5
               with:
-                  title: "Report monitor: ${{ steps.date.outputs.value }}"
+                  title: "Report monitor"
                   content-filepath: ./updates-found.md
