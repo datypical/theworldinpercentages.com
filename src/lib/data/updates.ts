@@ -9,25 +9,15 @@ import type { UpdateLog } from "$lib/types/data";
  *  - "Fixed" / "Corregido": Bugs or errors solved
  *  - "Removed" / "Eliminado": Outdated items taken out
  *
+ * Scope: Only user-visible changes are declared here (new data or new features).
+ * Internal/invisible changes (refactors, CI, tooling, dependencies) are NOT listed
+ * and do not get a version or release.
+ *
  * TODO: For future updates, automating the added data entries by mapping them directly from Steps.ts will be considered.
  */
 
 export const updates: Record<"en" | "es", UpdateLog[]> = {
     en: [
-        {
-            version: "v1.3.0",
-            date: "September 2026",
-            title: "User interface modernization",
-            changes: [
-                {
-                    label: "Changed",
-                    items: [
-                        "Migrated the interface to Svelte 5 runes and modern SvelteKit APIs for better performance and maintainability",
-                        "Refactored the data viewer, chart, controls, footer and scroll components",
-                    ],
-                },
-            ],
-        },
         {
             version: "v1.2.0",
             date: "September 2026",
@@ -129,20 +119,6 @@ export const updates: Record<"en" | "es", UpdateLog[]> = {
         },
     ],
     es: [
-        {
-            version: "v1.3.0",
-            date: "Septiembre 2026",
-            title: "Modernización de la interfaz de usuario",
-            changes: [
-                {
-                    label: "Cambiado",
-                    items: [
-                        "Migración de la interfaz a Svelte 5 runes y APIs modernas de SvelteKit para mejorar el rendimiento y el mantenimiento",
-                        "Refactorización de los componentes del visor de datos, gráfico, controles, pie de página y scroll",
-                    ],
-                },
-            ],
-        },
         {
             version: "v1.2.0",
             date: "Septiembre 2026",
