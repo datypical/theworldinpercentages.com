@@ -17,8 +17,8 @@ test.describe("The World in Percentages - End to End", () => {
 
   test("filters functionality updates categories correctly", async ({ page }) => {
     const categorySelect = page.locator("#category-mode");
-    await categorySelect.selectOption("energy");
-    await expect(categorySelect).toHaveValue("energy");
+    await categorySelect.selectOption("environment");
+    await expect(categorySelect).toHaveValue("environment");
     await expect(page.locator(".chart-container")).toBeVisible();
   });
 
