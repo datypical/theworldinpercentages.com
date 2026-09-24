@@ -17,9 +17,7 @@
     "format": "prettier --write .",
     "check:reports": "tsx scripts/check-reports.ts",
     "format:check": "prettier --check .",
-    "test": "playwright test",
-    "docker:dev": "docker compose up --build dev",
-    "docker:down": "docker compose down --remove-orphans"
+    "test": "playwright test"
   },
   "lint-staged": {
     "*.{js,ts,svelte}": [
