@@ -17,206 +17,206 @@ import type { UpdateLog } from "$lib/types/data";
  */
 
 export const updates: Record<"en" | "es", UpdateLog[]> = {
-    en: [
+  en: [
+    {
+      version: "v1.2.0",
+      date: "September 2026",
+      title: "Annual data updates for global reports",
+      changes: [
         {
-            version: "v1.2.0",
-            date: "September 2026",
-            title: "Annual data updates for global reports",
-            changes: [
-                {
-                    label: "Changed",
-                    items: [
-                        {
-                            text: "Global facts updated with their latest annual reports, including adjustments to percentages and explanations:",
-                            subItems: [
-                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a> (Democracy Index 2025)",
-                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population with access to electricity</a> (Energy Progress Report 2026)",
-                                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living in extreme poverty</a> (The Sustainable Development Goals Report 2026)",
-                            ],
-                        },
-                    ],
-                },
-            ],
+          label: "Changed",
+          items: [
+            {
+              text: "Global facts updated with their latest annual reports, including adjustments to percentages and explanations:",
+              subItems: [
+                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a> (Democracy Index 2025)",
+                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population with access to electricity</a> (Energy Progress Report 2026)",
+                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living in extreme poverty</a> (The Sustainable Development Goals Report 2026)",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: "v1.1.0",
+      date: "April 2026",
+      title: "'Guess' mode, new data and user interface update",
+      changes: [
+        {
+          label: "Added",
+          items: [
+            "New 'Guess' mode to test intuition",
+            "Scroll progress indicator",
+            {
+              text: "10 new global facts:",
+              subItems: [
+                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a> (Democracy Index 2024)",
+                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population owning 75% of global wealth</a> (World Inequality Report 2026)",
+                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population with no religious affiliation</a> (Global Religious Landscape 2025)",
+                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Children engaged in child labour</a> (Child Labour: Global estimates 2024)",
+                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population living in cities</a> (World Urbanization Prospects 2025)",
+                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Global adult literacy rate</a> (International Literacy Day 2025)",
+                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living with a mental disorder</a> (World Mental Health Report 2025)",
+                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Women who have experienced violence</a> (Violence against women prevalence estimates 2023)",
+                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries with full marriage equality</a> (Laws on Us)",
+                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Children and youth out of school</a> (Global Education Monitoring Report 2026)",
+              ],
+            },
+          ],
         },
         {
-            version: "v1.1.0",
-            date: "April 2026",
-            title: "'Guess' mode, new data and user interface update",
-            changes: [
-                {
-                    label: "Added",
-                    items: [
-                        "New 'Guess' mode to test intuition",
-                        "Scroll progress indicator",
-                        {
-                            text: "10 new global facts:",
-                            subItems: [
-                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries considered full democracies</a> (Democracy Index 2024)",
-                                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population owning 75% of global wealth</a> (World Inequality Report 2026)",
-                                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population with no religious affiliation</a> (Global Religious Landscape 2025)",
-                                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Children engaged in child labour</a> (Child Labour: Global estimates 2024)",
-                                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population living in cities</a> (World Urbanization Prospects 2025)",
-                                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Global adult literacy rate</a> (International Literacy Day 2025)",
-                                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living with a mental disorder</a> (World Mental Health Report 2025)",
-                                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Women who have experienced violence</a> (Violence against women prevalence estimates 2023)",
-                                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Countries with full marriage equality</a> (Laws on Us)",
-                                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Children and youth out of school</a> (Global Education Monitoring Report 2026)",
-                            ],
-                        },
-                    ],
-                },
-                {
-                    label: "Changed",
-                    items: [
-                        {
-                            text: "Expanded and reorganized data categories into 7 new themes (economy, education, environment, health, human rights, politics, society) for better filtering. The following initial facts were reclassified:",
-                            subItems: [
-                                "Population with access to safe drinking water: Health → Human Rights",
-                                "Global electricity from renewable sources: Energy → Environment",
-                                "Population living in extreme poverty: Society → Economy",
-                                "Global population facing chronic hunger: Health → Human Rights",
-                                "Global population with access to electricity: Energy → Human Rights",
-                            ],
-                        },
-                        "Redesigned navigation buttons to enhance usability and accessibility",
-                        "Optimized canonical links and sitemap structure",
-                    ],
-                },
-            ],
+          label: "Changed",
+          items: [
+            {
+              text: "Expanded and reorganized data categories into 7 new themes (economy, education, environment, health, human rights, politics, society) for better filtering. The following initial facts were reclassified:",
+              subItems: [
+                "Population with access to safe drinking water: Health → Human Rights",
+                "Global electricity from renewable sources: Energy → Environment",
+                "Population living in extreme poverty: Society → Economy",
+                "Global population facing chronic hunger: Health → Human Rights",
+                "Global population with access to electricity: Energy → Human Rights",
+              ],
+            },
+            "Redesigned navigation buttons to enhance usability and accessibility",
+            "Optimized canonical links and sitemap structure",
+          ],
+        },
+      ],
+    },
+    {
+      version: "v1.0.0",
+      date: "March 2026",
+      title: "Initial launch",
+      changes: [
+        {
+          label: "Added",
+          items: [
+            "Two interactive visualization formats using a 100-icon proportional scale",
+            "Category filters to explore facts by topic",
+            {
+              text: "10 initial global facts:",
+              subItems: [
+                "<a href='https://washdata.org/reports/jmp-2025-wash-households' target='_blank' rel='noopener noreferrer' class='inline-link'>Population with access to safe drinking water</a> (JMP 2025)",
+                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Global electricity from renewable sources</a> (Global Electricity Review 2025)",
+                "<a href='https://unstats.un.org/sdgs/report/2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living in extreme poverty</a> (The Sustainable Development Goals Report 2025)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population facing chronic hunger</a> (The State of Food Security and Nutrition in the World 2025)",
+                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population with access to electricity</a> (Energy Progress Report 2025)",
+                "<a href='https://nsidc.org/data/explore-data' target='_blank' rel='noopener noreferrer' class='inline-link'>Land area covered by ice</a> (Global Ice and Snow Data)",
+                "<a href='https://www.iucnredlist.org/' target='_blank' rel='noopener noreferrer' class='inline-link'>Species threatened with extinction</a> (Red List of Threatened Species 2025-2)",
+                "<a href='https://www.who.int/publications/i/item/9789240116276' target='_blank' rel='noopener noreferrer' class='inline-link'>Adults who consume tobacco</a> (Global report on trends in prevalence of tobacco use 2000–2024)",
+                "<a href='https://www.un.org/development/desa/pd/content/international-migrant-stock' target='_blank' rel='noopener noreferrer' class='inline-link'>International migrant population</a> (International Migrant Stock)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Land area covered by forests</a> (The State of the World's Forests 2024)",
+              ],
+            },
+            "Feedback and suggestion form",
+            "Methodology page with source documentation and selection criteria",
+            "Light and dark theme modes for better accessibility",
+            "Bilingual support (English and Spanish)",
+          ],
+        },
+      ],
+    },
+  ],
+  es: [
+    {
+      version: "v1.2.0",
+      date: "Septiembre 2026",
+      title: "Actualización anual de datos globales",
+      changes: [
+        {
+          label: "Cambiado",
+          items: [
+            {
+              text: "Actualización de los siguientes datos globales según sus reportes anuales más recientes, con ajustes en porcentajes y explicaciones:",
+              subItems: [
+                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a> (Democracy Index 2025)",
+                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con acceso a electricidad</a> (Energy Progress Report 2026)",
+                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población viviendo en pobreza extrema</a> (The Sustainable Development Goals Report 2026)",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      version: "v1.1.0",
+      date: "Abril 2026",
+      title: "Modo 'Adivina', nuevos datos y actualización de la interfaz de usuario",
+      changes: [
+        {
+          label: "Agregado",
+          items: [
+            "Nuevo modo 'Adivina' para poner a prueba la intuición",
+            "Indicador de progreso de scroll",
+            {
+              text: "10 nuevos datos globales:",
+              subItems: [
+                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a> (Democracy Index 2024)",
+                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que posee el 75% de la riqueza mundial</a> (World Inequality Report 2026)",
+                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población sin afiliación religiosa</a> (Global Religious Landscape 2025)",
+                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y niñas en situación de trabajo infantil</a> (Child Labour: Global estimates 2024)",
+                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial que vive en ciudades</a> (World Urbanization Prospects 2025)",
+                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Tasa mundial de alfabetización en adultos</a> (International Literacy Day 2025)",
+                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que vive con un trastorno mental</a> (World Mental Health Report 2025)",
+                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Mujeres que han sufrido violencia</a> (Violence against women prevalence estimates 2023)",
+                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países con matrimonio igualitario pleno</a> (Laws on Us)",
+                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y jóvenes fuera del sistema escolar</a> (Global Education Monitoring Report 2026)",
+              ],
+            },
+          ],
         },
         {
-            version: "v1.0.0",
-            date: "March 2026",
-            title: "Initial launch",
-            changes: [
-                {
-                    label: "Added",
-                    items: [
-                        "Two interactive visualization formats using a 100-icon proportional scale",
-                        "Category filters to explore facts by topic",
-                        {
-                            text: "10 initial global facts:",
-                            subItems: [
-                                "<a href='https://washdata.org/reports/jmp-2025-wash-households' target='_blank' rel='noopener noreferrer' class='inline-link'>Population with access to safe drinking water</a> (JMP 2025)",
-                                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Global electricity from renewable sources</a> (Global Electricity Review 2025)",
-                                "<a href='https://unstats.un.org/sdgs/report/2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Population living in extreme poverty</a> (The Sustainable Development Goals Report 2025)",
-                                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population facing chronic hunger</a> (The State of Food Security and Nutrition in the World 2025)",
-                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population with access to electricity</a> (Energy Progress Report 2025)",
-                                "<a href='https://nsidc.org/data/explore-data' target='_blank' rel='noopener noreferrer' class='inline-link'>Land area covered by ice</a> (Global Ice and Snow Data)",
-                                "<a href='https://www.iucnredlist.org/' target='_blank' rel='noopener noreferrer' class='inline-link'>Species threatened with extinction</a> (Red List of Threatened Species 2025-2)",
-                                "<a href='https://www.who.int/publications/i/item/9789240116276' target='_blank' rel='noopener noreferrer' class='inline-link'>Adults who consume tobacco</a> (Global report on trends in prevalence of tobacco use 2000–2024)",
-                                "<a href='https://www.un.org/development/desa/pd/content/international-migrant-stock' target='_blank' rel='noopener noreferrer' class='inline-link'>International migrant population</a> (International Migrant Stock)",
-                                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Land area covered by forests</a> (The State of the World's Forests 2024)",
-                            ],
-                        },
-                        "Feedback and suggestion form",
-                        "Methodology page with source documentation and selection criteria",
-                        "Light and dark theme modes for better accessibility",
-                        "Bilingual support (English and Spanish)",
-                    ],
-                },
-            ],
+          label: "Cambiado",
+          items: [
+            {
+              text: "Categorías de datos ampliadas y reorganizadas en 7 temáticas nuevas (economía, educación, medioambiente, salud, derechos humanos, política, sociedad) para un mejor filtrado. Se reclasificaron los siguientes datos iniciales:",
+              subItems: [
+                "Población con acceso a agua potable segura: Salud → Derechos humanos",
+                "Electricidad mundial por fuentes renovables: Energía → Medioambiente",
+                "Población en situación de pobreza extrema: Sociedad → Economía",
+                "Población mundial con hambre crónica: Salud → Derechos humanos",
+                "Población mundial con acceso a electricidad: Energía → Derechos humanos",
+              ],
+            },
+            "Rediseño de botones de navegación para facilitar su uso y accesibilidad",
+            "Optimización de los enlaces canónicos y la estructura del sitemap",
+          ],
         },
-    ],
-    es: [
+      ],
+    },
+    {
+      version: "v1.0.0",
+      date: "Marzo 2026",
+      title: "Lanzamiento inicial",
+      changes: [
         {
-            version: "v1.2.0",
-            date: "Septiembre 2026",
-            title: "Actualización anual de datos globales",
-            changes: [
-                {
-                    label: "Cambiado",
-                    items: [
-                        {
-                            text: "Actualización de los siguientes datos globales según sus reportes anuales más recientes, con ajustes en porcentajes y explicaciones:",
-                            subItems: [
-                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a> (Democracy Index 2025)",
-                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2026' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con acceso a electricidad</a> (Energy Progress Report 2026)",
-                                "<a href='https://unstats.un.org/sdgs/report/2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población viviendo en pobreza extrema</a> (The Sustainable Development Goals Report 2026)",
-                            ],
-                        },
-                    ],
-                },
-            ],
+          label: "Agregado",
+          items: [
+            "Dos formatos de visualización interactiva usando una escala proporcional de 100 íconos",
+            "Filtros por categorías para explorar los datos por tema",
+            {
+              text: "10 datos globales iniciales:",
+              subItems: [
+                "<a href='https://washdata.org/reports/jmp-2025-wash-households' target='_blank' rel='noopener noreferrer' class='inline-link'>Población con acceso a agua potable segura</a> (JMP 2025)",
+                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Electricidad mundial por fuentes renovables</a> (Global Electricity Review 2025)",
+                "<a href='https://unstats.un.org/sdgs/report/2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población en situación de pobreza extrema</a> (The Sustainable Development Goals Report 2025)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con hambre crónica</a> (The State of Food Security and Nutrition in the World 2025)",
+                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con acceso a electricidad</a> (Energy Progress Report 2025)",
+                "<a href='https://nsidc.org/data/explore-data' target='_blank' rel='noopener noreferrer' class='inline-link'>Superficie terrestre cubierta por hielo</a> (Global Ice and Snow Data)",
+                "<a href='https://www.iucnredlist.org/' target='_blank' rel='noopener noreferrer' class='inline-link'>Especies en peligro de extinción</a> (Red List of Threatened Species 2025-2)",
+                "<a href='https://www.who.int/publications/i/item/9789240116276' target='_blank' rel='noopener noreferrer' class='inline-link'>Adultos que consumen tabaco</a> (Global report on trends in prevalence of tobacco use 2000–2024)",
+                "<a href='https://www.un.org/development/desa/pd/content/international-migrant-stock' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que es migrante internacional</a> (International Migrant Stock)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Superficie terrestre cubierta por bosques</a> (The State of the World's Forests 2024)",
+              ],
+            },
+            "Formulario de contacto para comentarios y sugerencias",
+            "Página de metodología con documentación de fuentes y criterios de selección",
+            "Modos de tema claro y oscuro para una mejor accesibilidad",
+            "Soporte bilingüe (inglés y español)",
+          ],
         },
-        {
-            version: "v1.1.0",
-            date: "Abril 2026",
-            title: "Modo 'Adivina', nuevos datos y actualización de la interfaz de usuario",
-            changes: [
-                {
-                    label: "Agregado",
-                    items: [
-                        "Nuevo modo 'Adivina' para poner a prueba la intuición",
-                        "Indicador de progreso de scroll",
-                        {
-                            text: "10 nuevos datos globales:",
-                            subItems: [
-                                "<a href='https://www.eiu.com/n/campaigns/democracy-index-2024/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países considerados democracias plenas</a> (Democracy Index 2024)",
-                                "<a href='https://wir2026.wid.world/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que posee el 75% de la riqueza mundial</a> (World Inequality Report 2026)",
-                                "<a href='https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población sin afiliación religiosa</a> (Global Religious Landscape 2025)",
-                                "<a href='https://www.ilo.org/publications/major-publications/child-labour-global-estimates-2024-trends-and-road-forward' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y niñas en situación de trabajo infantil</a> (Child Labour: Global estimates 2024)",
-                                "<a href='https://www.un.org/development/desa/pd/world-urbanization-prospects-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial que vive en ciudades</a> (World Urbanization Prospects 2025)",
-                                "<a href='https://www.unesco.org/en/days/literacy' target='_blank' rel='noopener noreferrer' class='inline-link'>Tasa mundial de alfabetización en adultos</a> (International Literacy Day 2025)",
-                                "<a href='https://www.who.int/publications/i/item/9789240113817' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que vive con un trastorno mental</a> (World Mental Health Report 2025)",
-                                "<a href='https://www.who.int/publications/i/item/9789240116962' target='_blank' rel='noopener noreferrer' class='inline-link'>Mujeres que han sufrido violencia</a> (Violence against women prevalence estimates 2023)",
-                                "<a href='https://ilga.org/laws-on-us-report/' target='_blank' rel='noopener noreferrer' class='inline-link'>Países con matrimonio igualitario pleno</a> (Laws on Us)",
-                                "<a href='https://www.unesco.org/gem-report/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Niños y jóvenes fuera del sistema escolar</a> (Global Education Monitoring Report 2026)",
-                            ],
-                        },
-                    ],
-                },
-                {
-                    label: "Cambiado",
-                    items: [
-                        {
-                            text: "Categorías de datos ampliadas y reorganizadas en 7 temáticas nuevas (economía, educación, medioambiente, salud, derechos humanos, política, sociedad) para un mejor filtrado. Se reclasificaron los siguientes datos iniciales:",
-                            subItems: [
-                                "Población con acceso a agua potable segura: Salud → Derechos humanos",
-                                "Electricidad mundial por fuentes renovables: Energía → Medioambiente",
-                                "Población en situación de pobreza extrema: Sociedad → Economía",
-                                "Población mundial con hambre crónica: Salud → Derechos humanos",
-                                "Población mundial con acceso a electricidad: Energía → Derechos humanos",
-                            ],
-                        },
-                        "Rediseño de botones de navegación para facilitar su uso y accesibilidad",
-                        "Optimización de los enlaces canónicos y la estructura del sitemap",
-                    ],
-                },
-            ],
-        },
-        {
-            version: "v1.0.0",
-            date: "Marzo 2026",
-            title: "Lanzamiento inicial",
-            changes: [
-                {
-                    label: "Agregado",
-                    items: [
-                        "Dos formatos de visualización interactiva usando una escala proporcional de 100 íconos",
-                        "Filtros por categorías para explorar los datos por tema",
-                        {
-                            text: "10 datos globales iniciales:",
-                            subItems: [
-                                "<a href='https://washdata.org/reports/jmp-2025-wash-households' target='_blank' rel='noopener noreferrer' class='inline-link'>Población con acceso a agua potable segura</a> (JMP 2025)",
-                                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Electricidad mundial por fuentes renovables</a> (Global Electricity Review 2025)",
-                                "<a href='https://unstats.un.org/sdgs/report/2025/' target='_blank' rel='noopener noreferrer' class='inline-link'>Población en situación de pobreza extrema</a> (The Sustainable Development Goals Report 2025)",
-                                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con hambre crónica</a> (The State of Food Security and Nutrition in the World 2025)",
-                                "<a href='https://www.iea.org/reports/tracking-sdg7-the-energy-progress-report-2025' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con acceso a electricidad</a> (Energy Progress Report 2025)",
-                                "<a href='https://nsidc.org/data/explore-data' target='_blank' rel='noopener noreferrer' class='inline-link'>Superficie terrestre cubierta por hielo</a> (Global Ice and Snow Data)",
-                                "<a href='https://www.iucnredlist.org/' target='_blank' rel='noopener noreferrer' class='inline-link'>Especies en peligro de extinción</a> (Red List of Threatened Species 2025-2)",
-                                "<a href='https://www.who.int/publications/i/item/9789240116276' target='_blank' rel='noopener noreferrer' class='inline-link'>Adultos que consumen tabaco</a> (Global report on trends in prevalence of tobacco use 2000–2024)",
-                                "<a href='https://www.un.org/development/desa/pd/content/international-migrant-stock' target='_blank' rel='noopener noreferrer' class='inline-link'>Población que es migrante internacional</a> (International Migrant Stock)",
-                                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Superficie terrestre cubierta por bosques</a> (The State of the World's Forests 2024)",
-                            ],
-                        },
-                        "Formulario de contacto para comentarios y sugerencias",
-                        "Página de metodología con documentación de fuentes y criterios de selección",
-                        "Modos de tema claro y oscuro para una mejor accesibilidad",
-                        "Soporte bilingüe (inglés y español)",
-                    ],
-                },
-            ],
-        },
-    ],
+      ],
+    },
+  ],
 };

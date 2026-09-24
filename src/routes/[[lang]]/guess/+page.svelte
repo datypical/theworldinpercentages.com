@@ -1,246 +1,242 @@
 <script lang="ts">
-    import { STEPS, STEP_COLORS } from "$lib/data/Steps";
-    import { i18n } from "$lib/i18n/i18n.svelte";
-    import { resolve } from "$app/paths";
-    import Guess from "$lib/components/Guess.svelte";
-    import { trackEvent } from "$lib/helpers/analytics";
+  import { STEPS, STEP_COLORS } from "$lib/data/Steps";
+  import { i18n } from "$lib/i18n/i18n.svelte";
+  import { resolve } from "$app/paths";
+  import Guess from "$lib/components/Guess.svelte";
+  import { trackEvent } from "$lib/helpers/analytics";
 
-    const baseUrl = "https://theworldinpercentages.com";
-    let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/guess" : "/guess"));
+  const baseUrl = "https://theworldinpercentages.com";
+  let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/guess" : "/guess"));
 
-    let currentIndex = $state(0);
-    let userGuess = $state<number | null>(null);
-    let hasGuessed = $state(false);
-    let isFinished = $state(false);
+  let currentIndex = $state(0);
+  let userGuess = $state<number | null>(null);
+  let hasGuessed = $state(false);
+  let isFinished = $state(false);
 
-    let steps = $state([...STEPS]);
+  let steps = $state([...STEPS]);
 
-    import { onMount } from "svelte";
-    onMount(() => {
-        trackEvent("visited guess");
-        steps = [...steps].sort(() => Math.random() - 0.5);
-    });
+  import { onMount } from "svelte";
+  onMount(() => {
+    trackEvent("visited guess");
+    steps = [...steps].sort(() => Math.random() - 0.5);
+  });
 
-    let activeStep = $derived(steps[currentIndex]);
-    let activeColor = $derived(STEP_COLORS[currentIndex % STEP_COLORS.length].color);
+  let activeStep = $derived(steps[currentIndex]);
+  let activeColor = $derived(STEP_COLORS[currentIndex % STEP_COLORS.length].color);
 
-    function nextQuestion() {
-        if (currentIndex < steps.length - 1) {
-            currentIndex++;
-            userGuess = null;
-            hasGuessed = false;
-        } else {
-            isFinished = true;
-            trackEvent("finished guess game");
-        }
+  function nextQuestion() {
+    if (currentIndex < steps.length - 1) {
+      currentIndex++;
+      userGuess = null;
+      hasGuessed = false;
+    } else {
+      isFinished = true;
+      trackEvent("finished guess game");
     }
+  }
 
-    function resetGame() {
-        isFinished = false;
-        currentIndex = 0;
-        userGuess = null;
-        hasGuessed = false;
-        steps = [...steps].sort(() => Math.random() - 0.5);
-    }
+  function resetGame() {
+    isFinished = false;
+    currentIndex = 0;
+    userGuess = null;
+    hasGuessed = false;
+    steps = [...steps].sort(() => Math.random() - 0.5);
+  }
 </script>
 
 <svelte:head>
-    <title>{i18n.t.guess.title} - {i18n.t.home.title}</title>
-    <meta name="description" content={i18n.t.guess.seoDescription} />
+  <title>{i18n.t.guess.title} - {i18n.t.home.title}</title>
+  <meta name="description" content={i18n.t.guess.seoDescription} />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={pageUrl} />
-    <meta property="og:title" content={`${i18n.t.guess.title} - ${i18n.t.home.title}`} />
-    <meta property="og:description" content={i18n.t.guess.seoDescription} />
-    <meta property="og:image" content={`${baseUrl}/og-image.png`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:title" content={`${i18n.t.guess.title} - ${i18n.t.home.title}`} />
+  <meta property="og:description" content={i18n.t.guess.seoDescription} />
+  <meta property="og:image" content={`${baseUrl}/og-image.png`} />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={pageUrl} />
-    <meta
-        property="twitter:title"
-        content={`${i18n.t.guess.title} - ${i18n.t.home.title}`}
-    />
-    <meta property="twitter:description" content={i18n.t.guess.seoDescription} />
-    <meta property="twitter:image" content={`${baseUrl}/og-image.png`} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={pageUrl} />
+  <meta
+    property="twitter:title"
+    content={`${i18n.t.guess.title} - ${i18n.t.home.title}`}
+  />
+  <meta property="twitter:description" content={i18n.t.guess.seoDescription} />
+  <meta property="twitter:image" content={`${baseUrl}/og-image.png`} />
 </svelte:head>
 
 <div class="guess-page">
-    <header class="game-header">
-        <div class="title-container">
-            <h1>{i18n.t.guess.title}</h1>
-            <p class="subtitle">
-                {i18n.t.guess.subtitle}
-            </p>
-        </div>
-    </header>
+  <header class="game-header">
+    <div class="title-container">
+      <h1>{i18n.t.guess.title}</h1>
+      <p class="subtitle">
+        {i18n.t.guess.subtitle}
+      </p>
+    </div>
+  </header>
 
-    <main class="game-board">
-        {#if isFinished}
-            <div class="finished-container">
-                <h2>{i18n.t.guess.finishedTitle}</h2>
-                <p>{i18n.t.guess.finishedMessage}</p>
-                <div class="actions">
-                    <a
-                        href={resolve(i18n.language === "es" ? "/es" : "/")}
-                        class="next-btn"
-                    >
-                        {i18n.t.guess.exploreData}
-                    </a>
-                    <button class="next-btn btn-secondary" onclick={resetGame}>
-                        {i18n.t.guess.playAgain}
-                    </button>
-                </div>
-            </div>
-        {:else if activeStep}
-            <Guess
-                {activeStep}
-                {activeColor}
-                {currentIndex}
-                totalSteps={steps.length}
-                bind:userGuess
-                bind:hasGuessed
+  <main class="game-board">
+    {#if isFinished}
+      <div class="finished-container">
+        <h2>{i18n.t.guess.finishedTitle}</h2>
+        <p>{i18n.t.guess.finishedMessage}</p>
+        <div class="actions">
+          <a href={resolve(i18n.language === "es" ? "/es" : "/")} class="next-btn">
+            {i18n.t.guess.exploreData}
+          </a>
+          <button class="next-btn btn-secondary" onclick={resetGame}>
+            {i18n.t.guess.playAgain}
+          </button>
+        </div>
+      </div>
+    {:else if activeStep}
+      <Guess
+        {activeStep}
+        {activeColor}
+        {currentIndex}
+        totalSteps={steps.length}
+        bind:userGuess
+        bind:hasGuessed
+      >
+        {#if hasGuessed}
+          <button class="next-btn" onclick={nextQuestion}>
+            {i18n.t.guess.nextQuestion}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg
             >
-                {#if hasGuessed}
-                    <button class="next-btn" onclick={nextQuestion}>
-                        {i18n.t.guess.nextQuestion}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            ><path d="M5 12h14M12 5l7 7-7 7" /></svg
-                        >
-                    </button>
-                {/if}
-            </Guess>
+          </button>
         {/if}
-    </main>
+      </Guess>
+    {/if}
+  </main>
 </div>
 
 <style>
+  .guess-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 10vw;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .game-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+  }
+
+  .title-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .title-container h1 {
+    font-size: 2.5rem;
+    color: var(--text-heading);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .game-board {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .next-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--text-heading);
+    color: var(--bg-canvas);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition:
+      transform 0.2s,
+      opacity 0.2s;
+  }
+
+  .next-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .finished-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .finished-container h2 {
+    font-size: 2.5rem;
+    color: var(--text-heading);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .finished-container p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .finished-container .actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--text-heading);
+    color: var(--text-heading);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-surface-alt);
+  }
+
+  a.next-btn {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
     .guess-page {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 2rem 10vw;
-        max-width: 1400px;
-        margin: 0 auto;
+      padding: 5rem 5vw 2rem 5vw;
     }
-
-    .game-header {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-bottom: 3rem;
-        padding-top: 1rem;
-    }
-
-    .title-container {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .title-container h1 {
-        font-size: 2.5rem;
-        color: var(--text-heading);
-        margin: 0 0 0.5rem 0;
-        line-height: 1.2;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-        margin: 0;
-    }
-
-    .game-board {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-    }
-
-    .next-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--text-heading);
-        color: var(--bg-canvas);
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 999px;
-        font-family: inherit;
-        font-weight: 600;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition:
-            transform 0.2s,
-            opacity 0.2s;
-    }
-
-    .next-btn:hover {
-        transform: translateY(-2px);
-        opacity: 0.9;
-    }
-
-    .finished-container {
-        text-align: center;
-        max-width: 600px;
-        margin: 4rem auto;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    .finished-container h2 {
-        font-size: 2.5rem;
-        color: var(--text-heading);
-        margin: 0;
-        line-height: 1.2;
-    }
-
-    .finished-container p {
-        font-size: 1.2rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    .finished-container .actions {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-
-    .btn-secondary {
-        background: transparent;
-        border: 2px solid var(--text-heading);
-        color: var(--text-heading);
-    }
-
-    .btn-secondary:hover {
-        background: var(--bg-surface-alt);
-    }
-
-    a.next-btn {
-        text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-        .guess-page {
-            padding: 5rem 5vw 2rem 5vw;
-        }
-    }
+  }
 </style>
