@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { i18n } from "$lib/i18n/i18n.svelte";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
   import type { Snippet } from "svelte";
-  import type { Step } from "$lib/types/data";
+  import type { Step } from "#lib/types/data.js";
   import {
     items,
     squareCoords,
@@ -9,7 +9,7 @@
     gridHeight,
     cellStep,
     cellSize,
-  } from "$lib/data/chartLayout";
+  } from "#lib/data/chartLayout.js";
 
   let {
     activeStep,

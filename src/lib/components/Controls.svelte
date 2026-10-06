@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { i18n } from "$lib/i18n/i18n.svelte";
-  import type { DisplayMode } from "$lib/types/data";
-  import { CATEGORIES } from "$lib/data/Categories";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
+  import type { DisplayMode } from "#lib/types/data.js";
+  import { CATEGORIES } from "#lib/data/Categories.js";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   let {
     selectedCategory = $bindable(),

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import Viewer from "$lib/components/Viewer.svelte";
-  import { i18n } from "$lib/i18n/i18n.svelte";
+  import Viewer from "#lib/components/Viewer.svelte";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
 
   const baseUrl = "https://theworldinpercentages.com";
   let canonicalUrl = $derived(baseUrl + (i18n.language === "es" ? "/es" : ""));
@@ -75,7 +75,7 @@
       <p class="text-intro play-invite">
         {i18n.t.home.guessInvite}
         <a
-          href={resolve(i18n.language === "es" ? "/es/guess" : "/guess")}
+          href={resolve(i18n.language === "es" ? "es/guess" : "guess")}
           class="guess-link"
           data-sveltekit-preload-data="tap"
         >

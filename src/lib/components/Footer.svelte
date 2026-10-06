@@ -1,7 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import { i18n } from "$lib/i18n/i18n.svelte";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   let showModal = $state(false);
   let isSuccess = $state(false);

@@ -1,4 +1,4 @@
-import { updates } from "$lib/data/updates";
+import { updates } from "#lib/data/updates.js";
 
 export const translations = {
   en: {

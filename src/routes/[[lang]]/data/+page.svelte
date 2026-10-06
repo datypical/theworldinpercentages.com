@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { i18n } from "$lib/i18n/i18n.svelte";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
   import { onMount } from "svelte";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   const baseUrl = "https://theworldinpercentages.com";
   let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/data" : "/data"));

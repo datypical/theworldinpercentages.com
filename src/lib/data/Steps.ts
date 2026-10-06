@@ -1,4 +1,4 @@
-import type { Step } from "$lib/types/data";
+import type { Step } from "#lib/types/data.js";
 
 export function getSourceUrl(step: Step): string | undefined {
   if (step.sourceUrl) {

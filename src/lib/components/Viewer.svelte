@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Scrolly from "$lib/helpers/Scrolly.svelte";
+  import Scrolly from "#lib/helpers/Scrolly.svelte";
   import Controls from "./Controls.svelte";
   import Chart from "./Chart.svelte";
   import Footer from "./Footer.svelte";
-  import { STEPS, STEP_COLORS, getSourceUrl } from "$lib/data/Steps";
-  import { i18n } from "$lib/i18n/i18n.svelte";
-  import type { DisplayMode } from "$lib/types/data";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import { STEPS, STEP_COLORS, getSourceUrl } from "#lib/data/Steps.js";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
+  import type { DisplayMode } from "#lib/types/data.js";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   let currentStep = $state(-1);
   let displayMode = $state<DisplayMode>("shape");
