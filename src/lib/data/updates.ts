@@ -1,4 +1,4 @@
-import type { UpdateLog } from "$lib/types/data";
+import type { UpdateLog } from "#lib/types/data.js";
 
 /*
  * CHANGELOG FORMATTING GUIDE

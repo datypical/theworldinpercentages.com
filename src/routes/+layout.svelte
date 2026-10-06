@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "$lib/styles/global.css";
+  import "#lib/styles/global.css";
 
   let { children } = $props();
 
@@ -7,8 +7,8 @@
   import { goto } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { i18n } from "$lib/i18n/i18n.svelte";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   let theme = $state("dark");
 
@@ -93,7 +93,7 @@
 <div class="global-controls">
   {#if !isHomePage}
     <a
-      href={resolve(i18n.language === "es" ? "/es" : "/")}
+      href={resolve(i18n.language === "es" ? "es" : "")}
       class="nav-link special"
       data-sveltekit-preload-data="tap"
       title={i18n.t.error.backHome}

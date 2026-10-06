@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { STEPS, STEP_COLORS } from "$lib/data/Steps";
-  import { i18n } from "$lib/i18n/i18n.svelte";
+  import { STEPS, STEP_COLORS } from "#lib/data/Steps.js";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
   import { resolve } from "$app/paths";
-  import Guess from "$lib/components/Guess.svelte";
-  import { trackEvent } from "$lib/helpers/analytics";
+  import Guess from "#lib/components/Guess.svelte";
+  import { trackEvent } from "#lib/helpers/analytics.js";
 
   const baseUrl = "https://theworldinpercentages.com";
   let pageUrl = $derived(baseUrl + (i18n.language === "es" ? "/es/guess" : "/guess"));
@@ -80,7 +80,7 @@
         <h2>{i18n.t.guess.finishedTitle}</h2>
         <p>{i18n.t.guess.finishedMessage}</p>
         <div class="actions">
-          <a href={resolve(i18n.language === "es" ? "/es" : "/")} class="next-btn">
+          <a href={resolve(i18n.language === "es" ? "es" : "")} class="next-btn">
             {i18n.t.guess.exploreData}
           </a>
           <button class="next-btn btn-secondary" onclick={resetGame}>

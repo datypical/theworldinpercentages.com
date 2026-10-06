@@ -1,4 +1,4 @@
-import type { CircleNode } from "$lib/types/data";
+import type { CircleNode } from "#lib/types/data.js";
 
 export const totalItems = 100;
 export const items = Array.from({ length: totalItems }, (_, i) => i);

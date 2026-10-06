@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { i18n } from "$lib/i18n/i18n.svelte";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
 </script>
 
 <div class="l-container error-container">

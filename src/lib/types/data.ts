@@ -32,9 +32,7 @@ export interface ManualMonitorConfig {
 }
 
 export type MonitorConfig =
-  | UrlIncrementMonitorConfig
-  | PageYearMonitorConfig
-  | ManualMonitorConfig;
+  UrlIncrementMonitorConfig | PageYearMonitorConfig | ManualMonitorConfig;
 
 export interface Step {
   id: string;

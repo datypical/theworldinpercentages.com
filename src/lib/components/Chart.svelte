@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { i18n } from "$lib/i18n/i18n.svelte";
-  import type { Step, DisplayMode } from "$lib/types/data";
+  import { i18n } from "#lib/i18n/i18n.svelte.js";
+  import type { Step, DisplayMode } from "#lib/types/data.js";
   import {
     items,
     squareCoords,
@@ -10,7 +10,7 @@
     cellStep,
     cellSize,
     shapeScale,
-  } from "$lib/data/chartLayout";
+  } from "#lib/data/chartLayout.js";
 
   let {
     displayMode,
