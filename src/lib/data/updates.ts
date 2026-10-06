@@ -19,6 +19,26 @@ import type { UpdateLog } from "#lib/types/data.js";
 export const updates: Record<"en" | "es", UpdateLog[]> = {
   en: [
     {
+      version: "v1.3.0",
+      date: "October 2026",
+      title: "Annual data updates for global reports",
+      changes: [
+        {
+          label: "Changed",
+          items: [
+            {
+              text: "Global facts updated with their latest annual reports, including adjustments to percentages and explanations:",
+              subItems: [
+                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Global electricity from renewable sources</a> (Global Electricity Review 2026)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Global population facing chronic hunger</a> (The State of Food Security and Nutrition in the World 2026)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Land area covered by forests</a> (The State of the World's Forests 2026)",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
       version: "v1.2.0",
       date: "September 2026",
       title: "Annual data updates for global reports",
@@ -119,6 +139,26 @@ export const updates: Record<"en" | "es", UpdateLog[]> = {
     },
   ],
   es: [
+    {
+      version: "v1.3.0",
+      date: "Octubre 2026",
+      title: "Actualización anual de datos globales",
+      changes: [
+        {
+          label: "Cambiado",
+          items: [
+            {
+              text: "Actualización de los siguientes datos globales según sus reportes anuales más recientes, con ajustes en porcentajes y explicaciones:",
+              subItems: [
+                "<a href='https://ember-energy.org/latest-insights/global-electricity-review-2026/' target='_blank' rel='noopener noreferrer' class='inline-link'>Electricidad mundial por fuentes renovables</a> (Global Electricity Review 2026)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Población mundial con hambre crónica</a> (The State of Food Security and Nutrition in the World 2026)",
+                "<a href='https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en' target='_blank' rel='noopener noreferrer' class='inline-link'>Superficie terrestre cubierta por bosques</a> (The State of the World's Forests 2026)",
+              ],
+            },
+          ],
+        },
+      ],
+    },
     {
       version: "v1.2.0",
       date: "Septiembre 2026",

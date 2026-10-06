@@ -54,30 +54,30 @@ export const STEPS: Step[] = [
   },
   {
     id: "step_2",
-    percentage: 32,
+    percentage: 34,
     category: "environment",
     monitor: {
-      name: "Global Electricity Review",
+      name: "Global Electricity Review 2026",
       checkType: "url_increment",
       baseUrl:
         "https://ember-energy.org/latest-insights/global-electricity-review-{year}/",
-      latestPublishedYear: 2025,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Global electricity from renewable sources",
       guessQuestion:
         "What percentage of global electricity comes from renewable sources?",
       explanation:
-        "Renewables generate 32% of global electricity, led by hydropower, wind, and solar energy",
-      source: "Global Electricity Review 2025 | Ember",
+        "Renewables generated 34% of global electricity in 2025, overtaking coal for the first time in the modern era, led by solar, wind, and hydropower",
+      source: "Global Electricity Review 2026 | Ember",
     },
     es: {
       question: "Electricidad mundial por fuentes renovables",
       guessQuestion:
         "¿Qué porcentaje de la electricidad mundial proviene de fuentes renovables?",
       explanation:
-        "Las renovables generan el 32% de la electricidad global, lideradas por la energía hidroeléctrica, eólica y solar",
-      source: "Revisión Eléctrica Global 2025 | Ember",
+        "Las renovables generaron el 34% de la electricidad global en 2025, superando al carbón por primera vez en la era moderna, lideradas por la energía solar, eólica e hidroeléctrica",
+      source: "Revisión Eléctrica Global 2026 | Ember",
     },
   },
   {
@@ -111,29 +111,29 @@ export const STEPS: Step[] = [
     percentage: 8,
     category: "human rights",
     monitor: {
-      name: "The State of Food Security and Nutrition in the World 2025",
+      name: "The State of Food Security and Nutrition in the World 2026",
       checkType: "page_year",
       url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
       yearPattern:
         "(?:sofi|state of food security and nutrition in the world)\\s*[-–—:]*\\s*(20\\d{2})",
       yearPatternFlags: "i",
-      latestPublishedYear: 2025,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Global population facing chronic hunger",
       guessQuestion: "What percentage of the global population faces chronic hunger?",
       explanation:
-        "Affects roughly 673 million people. Although the figure dropped slightly in 2024, the food crisis persists",
+        "Affects roughly 645 million people. Although figures dropped in 2025, chronic hunger remains far above pre-pandemic levels",
       source:
-        "The State of Food Security and Nutrition in the World 2025 | FAO, IFAD, WHO, WFP, and UNICEF",
+        "The State of Food Security and Nutrition in the World 2026 | FAO, IFAD, WHO, WFP, and UNICEF",
     },
     es: {
       question: "Población mundial con hambre crónica",
       guessQuestion: "¿Qué porcentaje de la población mundial vive con hambre crónica?",
       explanation:
-        "Afecta a unos 673 millones de personas. Aunque la cifra bajó levemente en 2024, la crisis alimentaria persiste",
+        "Afecta a unos 645 millones de personas. Aunque la cifra disminuyó en 2025, el hambre crónica sigue estando por encima de los niveles previos a la pandemia",
       source:
-        "El estado de la seguridad alimentaria y la nutrición en el mundo 2025 | FAO, FIDA, OMS, PMA y UNICEF",
+        "El estado de la seguridad alimentaria y la nutrición en el mundo 2026 | FAO, FIDA, OMS, PMA y UNICEF",
     },
   },
   {
@@ -271,30 +271,30 @@ export const STEPS: Step[] = [
   },
   {
     id: "step_10",
-    percentage: 31,
+    percentage: 32,
     category: "environment",
     monitor: {
-      name: "The State of the World's Forests 2024",
+      name: "The State of the World's Forests 2026",
       checkType: "page_year",
       url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en",
       yearPattern: "(?:sofo|state of the world['’]?s forests)\\s*[-–—:]*\\s*(20\\d{2})",
       yearPatternFlags: "i",
-      latestPublishedYear: 2024,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Land area covered by forests",
       guessQuestion: "What percentage of the Earth's land area is covered by forests?",
       explanation:
-        "Forests cover 31% of the planet. Over half of this natural wealth is located in just five countries",
-      source: "The State of the World's Forests 2024 | FAO",
+        "Forests cover 32% of the planet (4.14 billion hectares). Over half of this natural wealth is located in just five countries",
+      source: "The State of the World's Forests 2026 | FAO",
     },
     es: {
       question: "Superficie terrestre cubierta por bosques",
       guessQuestion:
         "¿Qué porcentaje de la superficie terrestre está cubierta por bosques?",
       explanation:
-        "Los bosques ocupan el 31% del planeta. Más de la mitad de esta riqueza natural se concentra en solo cinco países",
-      source: "El estado de los bosques del mundo 2024 | FAO",
+        "Los bosques ocupan el 32% del planeta (4,14 mil millones de hectáreas). Más de la mitad de esta riqueza natural se concentra en solo cinco países",
+      source: "El estado de los bosques del mundo 2026 | FAO",
     },
   },
   {
