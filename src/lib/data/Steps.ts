@@ -111,29 +111,29 @@ export const STEPS: Step[] = [
     percentage: 8,
     category: "human rights",
     monitor: {
-      name: "The State of Food Security and Nutrition in the World 2025",
+      name: "The State of Food Security and Nutrition in the World 2026",
       checkType: "page_year",
       url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en",
       yearPattern:
         "(?:sofi|state of food security and nutrition in the world)\\s*[-–—:]*\\s*(20\\d{2})",
       yearPatternFlags: "i",
-      latestPublishedYear: 2025,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Global population facing chronic hunger",
       guessQuestion: "What percentage of the global population faces chronic hunger?",
       explanation:
-        "Affects roughly 673 million people. Although the figure dropped slightly in 2024, the food crisis persists",
+        "Affects roughly 645 million people. Although figures dropped in 2025, chronic hunger remains far above pre-pandemic levels",
       source:
-        "The State of Food Security and Nutrition in the World 2025 | FAO, IFAD, WHO, WFP, and UNICEF",
+        "The State of Food Security and Nutrition in the World 2026 | FAO, IFAD, WHO, WFP, and UNICEF",
     },
     es: {
       question: "Población mundial con hambre crónica",
       guessQuestion: "¿Qué porcentaje de la población mundial vive con hambre crónica?",
       explanation:
-        "Afecta a unos 673 millones de personas. Aunque la cifra bajó levemente en 2024, la crisis alimentaria persiste",
+        "Afecta a unos 645 millones de personas. Aunque la cifra disminuyó en 2025, el hambre crónica sigue estando por encima de los niveles previos a la pandemia",
       source:
-        "El estado de la seguridad alimentaria y la nutrición en el mundo 2025 | FAO, FIDA, OMS, PMA y UNICEF",
+        "El estado de la seguridad alimentaria y la nutrición en el mundo 2026 | FAO, FIDA, OMS, PMA y UNICEF",
     },
   },
   {
