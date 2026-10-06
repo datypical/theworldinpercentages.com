@@ -271,30 +271,30 @@ export const STEPS: Step[] = [
   },
   {
     id: "step_10",
-    percentage: 31,
+    percentage: 32,
     category: "environment",
     monitor: {
-      name: "The State of the World's Forests 2024",
+      name: "The State of the World's Forests 2026",
       checkType: "page_year",
       url: "https://www.fao.org/publications/fao-flagship-publications/the-state-of-the-worlds-forests/en",
       yearPattern: "(?:sofo|state of the world['’]?s forests)\\s*[-–—:]*\\s*(20\\d{2})",
       yearPatternFlags: "i",
-      latestPublishedYear: 2024,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Land area covered by forests",
       guessQuestion: "What percentage of the Earth's land area is covered by forests?",
       explanation:
-        "Forests cover 31% of the planet. Over half of this natural wealth is located in just five countries",
-      source: "The State of the World's Forests 2024 | FAO",
+        "Forests cover 32% of the planet (4.14 billion hectares). Over half of this natural wealth is located in just five countries",
+      source: "The State of the World's Forests 2026 | FAO",
     },
     es: {
       question: "Superficie terrestre cubierta por bosques",
       guessQuestion:
         "¿Qué porcentaje de la superficie terrestre está cubierta por bosques?",
       explanation:
-        "Los bosques ocupan el 31% del planeta. Más de la mitad de esta riqueza natural se concentra en solo cinco países",
-      source: "El estado de los bosques del mundo 2024 | FAO",
+        "Los bosques ocupan el 32% del planeta (4,14 mil millones de hectáreas). Más de la mitad de esta riqueza natural se concentra en solo cinco países",
+      source: "El estado de los bosques del mundo 2026 | FAO",
     },
   },
   {
