@@ -54,30 +54,30 @@ export const STEPS: Step[] = [
   },
   {
     id: "step_2",
-    percentage: 32,
+    percentage: 34,
     category: "environment",
     monitor: {
-      name: "Global Electricity Review",
+      name: "Global Electricity Review 2026",
       checkType: "url_increment",
       baseUrl:
         "https://ember-energy.org/latest-insights/global-electricity-review-{year}/",
-      latestPublishedYear: 2025,
+      latestPublishedYear: 2026,
     },
     en: {
       question: "Global electricity from renewable sources",
       guessQuestion:
         "What percentage of global electricity comes from renewable sources?",
       explanation:
-        "Renewables generate 32% of global electricity, led by hydropower, wind, and solar energy",
-      source: "Global Electricity Review 2025 | Ember",
+        "Renewables generated 34% of global electricity in 2025, overtaking coal for the first time in the modern era, led by solar, wind, and hydropower",
+      source: "Global Electricity Review 2026 | Ember",
     },
     es: {
       question: "Electricidad mundial por fuentes renovables",
       guessQuestion:
         "¿Qué porcentaje de la electricidad mundial proviene de fuentes renovables?",
       explanation:
-        "Las renovables generan el 32% de la electricidad global, lideradas por la energía hidroeléctrica, eólica y solar",
-      source: "Revisión Eléctrica Global 2025 | Ember",
+        "Las renovables generaron el 34% de la electricidad global en 2025, superando al carbón por primera vez en la era moderna, lideradas por la energía solar, eólica e hidroeléctrica",
+      source: "Revisión Eléctrica Global 2026 | Ember",
     },
   },
   {
